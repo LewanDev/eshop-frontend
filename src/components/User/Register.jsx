@@ -8,6 +8,7 @@ const Register = () => {
     password2: "",
   });
   const [msg, setMsg] = useState("");
+  
 
   const handleChange = (e) => {
     setForm({ ...form, [e.target.name]: e.target.value });
@@ -24,10 +25,11 @@ const Register = () => {
     }
 
     try {
-      const res = await fetch("http://localhost:5000/api/auth/register", {
+      const res = await fetch(`${import.meta.env.VITE_API_URL}/register`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(form),
+        credentials: "include", // Si usas cookies o tokens autenticados
       });
 
       if (!res.ok) throw new Error("Error en el registro");
