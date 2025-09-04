@@ -1,4 +1,4 @@
-const API_URL = "http://localhost:5000/api/auth"; // ajusta si tu backend está en otro puerto/host
+const API_URL = process.env.VITE_API_URL || "http://localhost:5000/api/auth";
 
 export async function register(userData) {
   const res = await fetch(`${API_URL}/register`, {
