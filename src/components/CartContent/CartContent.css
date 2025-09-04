@@ -1,0 +1,117 @@
+.cart-content{
+  margin: 25px 5px;
+}
+
+.cart-title{
+  font-size: xx-large;
+  font-weight: bold;
+  margin: 40px;
+}
+
+.cart-card-container {
+  padding: 5px;
+  border-radius: 10px;
+  display: flex;
+  justify-content: space-around;
+  background-color: gainsboro;
+  flex-wrap: wrap;
+  margin: 30px;
+  align-items: center;
+  text-align: center;
+}
+
+.cart-card-container > img {
+  width: 200px;
+  height: 300px;
+  object-fit: fill;
+  border-radius: 10px;
+}
+
+.cart-card-detail {
+  display: flex;
+  flex-direction: column;
+}
+
+.cart-total {
+  text-align: center;
+  font-size: large;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+.cart-total span {
+  font-size: large;
+  font-weight: bold;
+}
+
+.btn-cart-confirm {
+  border: none;
+  outline: 0;
+  color: white;
+  padding: 10px 20px;
+  background-color: #06811a;
+  cursor: pointer;
+  font-size: 18px;
+  border-radius: 10px;
+}
+
+.btn-cart-clear {
+  border: none;
+  outline: 0;
+  color: white;
+  padding: 10px 20px;
+  background-color: #d62828;
+  cursor: pointer;
+  font-size: 18px;
+  border-radius: 10px;
+}
+
+.cart-btn-delete {
+  cursor: pointer;
+}
+
+/*** ITEM COUNTER ***/
+.cart-itemcounter {
+  display: flex;
+  flex-direction: column;
+}
+
+.cart-itemcounter-title {
+  font-size: large;
+  font-weight: bold;
+}
+
+.cart-addremove {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+
+}
+
+.cart-addremove .btn {
+  cursor: pointer;
+}
+
+.cart-addremove .quanty {
+  font-size: large;
+  font-weight: bold;
+}
+
+.cart-message-empty {
+  text-align: center;
+  margin-top: 40px;
+}
+
+.cart-items-total{
+  background-color: red;
+  color: white;
+  border-radius: 50%;
+  font-size: 12px;
+  padding: 1px 4px;
+  top: 56px;
+  right: 14px;
+  position: absolute;
+}

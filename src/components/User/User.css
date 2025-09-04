@@ -1,0 +1,87 @@
+.content {
+  max-width: 500px;
+  min-width: 200px;
+  padding: 15px 40px;
+  margin: 20px;
+  border-radius: 10px;
+  text-align: start;
+  background-color: #eee;
+  display: flex;
+  flex-direction: column;
+  margin: 30px auto;
+  gap: 20px;
+}
+
+.content span {
+  font-size: 26px;
+  font-weight: bold;
+}
+.content strong {
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.content-profile {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.content-profile-div{
+  display: flex;
+  flex-direction: column;
+}
+
+.content-form {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.content-form input[type="text"],
+input[type="email"],
+input[type="password"],
+input[type="tel"] {
+  width: 100%;
+  font-size: 16px;
+  padding: 12px;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  box-sizing: border-box;
+  text-align: start;
+  margin-bottom: 12px;
+}
+
+.content-form button {
+  width: 100%;
+  background-color: #4caf50;
+  color: white;
+  padding: 14px 20px;
+  font-size: 14px;
+  font-weight: bold;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.5s;
+}
+.content-form button:hover {
+  background-color: #29692b;
+}
+
+.content-form .btn-logout{
+  width: 100%;
+  background-color: #a12727;
+  color: white;
+  padding: 14px 20px;
+  font-size: 14px;
+  font-weight: bold;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.5s;
+}
+.content-form .btn-logout:hover{
+  background-color: #701313;
+}

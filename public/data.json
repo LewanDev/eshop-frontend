@@ -1,0 +1,62 @@
+[
+  {
+    "id": 1,
+    "name": "Cartera Rumiz",
+    "price": 72000,
+    "img": "https://acdn-us.mitiendanube.com/stores/718/388/products/40236-e36a8354e2430245ca17460329489828-1024-1024.webp",
+    "quanty": 1,
+    "desc": "Cartera con bolsillos, matelasse, logo en chapa metálica y correa regulable de poliéster.",
+    "measures" : "Alto 35cm, ancho 48cm, prof 23cm.",
+    "art":"40236"
+  },
+  {
+    "id": 2,
+    "name": "Bandolera Patte",
+    "price": 65000,
+    "img": "https://acdn-us.mitiendanube.com/stores/718/388/products/30339-83a103b0fc7c49e17f17430033726728-1024-1024.webp",
+    "quanty": 1,
+    "desc": "Bandolera pequeña con botón y bolsillo con solapa al frente. Herrajes en dorado y logo metalizado. Correa regulable.",
+    "measures" : "Alto 19cm, ancho 7.5cm, prof 14.5cm.",
+    "art":"30339"
+  },
+  {
+    "id": 3,
+    "name": "Mochila Nelia",
+    "price": 44340,
+    "img": "https://acdn-us.mitiendanube.com/stores/718/388/products/60004-1-fad70b18b64b99118617441302636720-1024-1024.webp",
+    "quanty": 1,
+    "desc": "Mochila mediana con efecto tipo matelasse, cierres plásticos tipo 'diente de perro' y detalle de 'animal print' en el bolsillo frontal. Doble división y correas de poliéster.",
+    "measures" : "Alt 32 cm, ancho 26 cm, prof 14 cm.",
+    "art":"60004"
+  },
+  {
+    "id": 4,
+    "name": "Bandolera Opis",
+    "price": 69800,
+    "img": "https://acdn-us.mitiendanube.com/stores/718/388/products/30320-9db932cf66374ee04017429935948049-1024-1024.webp",
+    "quanty": 1,
+    "desc": "Bandolera combinada con detalle en la tapa, logo grabado y herrajes en dorado. Correa regulable y división interna.",
+    "measures" : "Alt 26 cm, ancho 10 cm, prof. 14 cm.",
+    "art":"30320"
+  },
+  {
+    "id": 5,
+    "name": "Cartera Tresa",
+    "price": 46680,
+    "img": "https://acdn-us.mitiendanube.com/stores/718/388/products/30338-b7ee66bb8ffa38192a17430028363326-1024-1024.webp",
+    "quanty": 1,
+    "desc": "Cartera mediana con botón y bolsillo al frente. Herrajes en dorado y logo metalizado. Correa desmontable para usar como bandolera.",
+    "measures" : "Alt 34.5 cm, ancho 13.5 cm, prof 23.5 cm.",
+    "art":"30338"
+  },
+  {
+    "id": 6,
+    "name": "Mochila Sisu",
+    "price": 40200,
+    "img": "https://acdn-us.mitiendanube.com/stores/718/388/products/40230-869c9655d6f6c4da8c17459519955424-1024-1024.webp",
+    "quanty": 1,
+    "desc": "Mochila con doble cierre en bolsillo al frente. Herrajes niquelados, cierres metálicos y logo metalizado. Correas regulables y detalle de tirador con tachas. ",
+    "measures" : "Alt 35 cm, ancho 29 cm, prof 16 cm.",
+    "art":"40230"
+  }
+]
