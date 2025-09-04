@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { register } from "../../services/auth";
 import Navbar from "../NavBar/Navbar";
 
 const Register = () => {
@@ -8,7 +9,7 @@ const Register = () => {
     password2: "",
   });
   const [msg, setMsg] = useState("");
-  
+  const [loading, setLoading] = useState(false);
 
   const handleChange = (e) => {
     setForm({ ...form, [e.target.name]: e.target.value });
@@ -17,7 +18,9 @@ const Register = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    // ✅ Validar que las contraseñas coincidan
+    setLoading(true);
+    setMsg("");
+    
     if (form.password !== form.password2) {
       setMsg("❌ Las contraseñas no coinciden");
       document.getElementById("password").focus();
@@ -25,25 +28,25 @@ const Register = () => {
     }
 
     try {
-      const res = await fetch(`${import.meta.env.VITE_API_URL}/register`, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(form),
-        credentials: "include", // Si usas cookies o tokens autenticados
-      });
+      // const res = await fetch(`${import.meta.env.VITE_API_URL}/register`, {
+      //   method: "POST",
+      //   headers: { "Content-Type": "application/json" },
+      //   body: JSON.stringify(form),
+      //   credentials: "include", // Si usas cookies o tokens autenticados
+      // });
+      const res = await register(form);
 
       if (!res.ok) throw new Error("Error en el registro");
 
       const data = await res.json();
 
-      // Guardo token y user en localStorage
       localStorage.setItem("token", data.token);
       localStorage.setItem("user", JSON.stringify(data.user));
-
-      // Redirijo al profile
       window.location.href = "/profile";
     } catch (err) {
-      console.error("Error registrando:", err);
+      console.error("❌ Error: ", err);
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -84,7 +87,9 @@ const Register = () => {
               onChange={handleChange}
               required
             />
-            <button type="submit">Registrarse</button>
+            <button type="submit" disabled={loading}>
+              {loading ? "Espere por favor..." : "Registrarse"}
+            </button>
           </div>
         </form>
         {msg && <p>{msg}</p>}

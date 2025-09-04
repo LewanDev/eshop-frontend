@@ -30,7 +30,7 @@ const Login = () => {
         setMsg(`❌ Error: ${data.msg}`);
       }
     } catch (error) {
-      setMsg("❌ Error en el servidor: " + error);
+      setMsg("❌ Error: " + error);
     } finally {
       setLoading(false);
     }
@@ -64,7 +64,7 @@ const Login = () => {
               required
             />
             <button type="submit" disabled={loading}>
-              {loading ? "Ingresando..." : "Ingresar"}
+              {loading ? "Espere por favor..." : "Ingresar"}
             </button>
           </div>
         </form>
