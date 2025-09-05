@@ -27,7 +27,7 @@ const Login = () => {
         setMsg("✅ Login exitoso");
         window.location.href = "/profile";
       } else {
-        setMsg(`❌ Error: ${data.msg}`);
+        setMsg(`❌ Error: ${data.message}`);
       }
     } catch (error) {
       setMsg("❌ Error: " + error);

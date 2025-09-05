@@ -20,31 +20,28 @@ const Register = () => {
 
     setLoading(true);
     setMsg("");
-    
+
     if (form.password !== form.password2) {
       setMsg("❌ Las contraseñas no coinciden");
       document.getElementById("password").focus();
+      setLoading(false);
       return;
     }
 
     try {
-      // const res = await fetch(`${import.meta.env.VITE_API_URL}/register`, {
-      //   method: "POST",
-      //   headers: { "Content-Type": "application/json" },
-      //   body: JSON.stringify(form),
-      //   credentials: "include", // Si usas cookies o tokens autenticados
-      // });
-      const res = await register(form);
+      const data = await register(form);
 
-      if (!res.ok) throw new Error("Error en el registro");
-
-      const data = await res.json();
+      if (!data.token) {
+        // Si el backend devuelve msg, lo mostramos
+        throw new Error(data.message || "Error en el registro");
+      }
 
       localStorage.setItem("token", data.token);
       localStorage.setItem("user", JSON.stringify(data.user));
       window.location.href = "/profile";
     } catch (err) {
       console.error("❌ Error: ", err);
+      setMsg(err.message);
     } finally {
       setLoading(false);
     }
