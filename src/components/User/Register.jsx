@@ -32,7 +32,6 @@ const Register = () => {
       const data = await register(form);
 
       if (!data.token) {
-        // Si el backend devuelve msg, lo mostramos
         throw new Error(data.message || "Error en el registro");
       }
 

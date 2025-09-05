@@ -30,7 +30,7 @@ const Login = () => {
         setMsg(`❌ Error: ${data.message}`);
       }
     } catch (error) {
-      setMsg("❌ Error: " + error);
+      setMsg("❌ Fatal error: " + error);
     } finally {
       setLoading(false);
     }
