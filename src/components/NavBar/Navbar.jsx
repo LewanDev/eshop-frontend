@@ -15,24 +15,33 @@ const Navbar = () => {
   }, []);
 
   return (
-    <div className="nav-container">
-      <nav className="navbar">
+    <div className="sticky top-0 z-10">
+      <nav className="flex flex-row justify-between items-center h-[10vh] bg-(--color-darkest) px-5 py-0 relative">
         <Link to="/">
-          <img src="/logo1.png" alt="E-Shop Logo" className="navbar-logo" />
+          <img
+            src="/logo1.png"
+            alt="E-Shop Logo"
+            className="h-[75px] w-auto block ml-0.5"
+          />
         </Link>
 
         <Link to="/">
-          <div className="navbar-center">
-            <span className="navbar-title">e-Shop Deluxe</span>
-          </div>
+          <span className="text-lighter text-center font-bold m-0 text-2xl">
+            e-Shop Deluxe
+          </span>
         </Link>
 
-        <div className="navbar-right">
-          <div className="navbar-user">
+        <div className="flex flex-row justify-between items-center gap-2.5">
+          <div className="flex flex-row items-center gap-2.5 mr-2.5">
             {user ? (
               <>
                 <div className="dropdown">
-                  <button className="btn-profile">Mi perfil ▾</button>
+                  <img
+                    src="/user0.png"
+                    alt="Mi perfil"
+                    // className="btn-profile"
+                    className="border-2 border-solid border-transparent outline-0 text-white bg-transparent font-bold cursor-pointer text-lg w-10 transition-all duration-500"
+                  />
                   <div className="dropdown-content">
                     <Link to="/profile">👤 Mi perfil </Link>
                     <Link to="/cart">
@@ -44,7 +53,11 @@ const Navbar = () => {
               </>
             ) : (
               <div className="dropdown">
-                <button className="btn-profile">Mi perfil ▾</button>
+                <img
+                  src="/user0.png"
+                  alt="Mi perfil"
+                  className="border-2 border-solid border-transparent outline-0 text-white bg-transparent font-bold cursor-pointer text-lg w-10 transition-all duration-500"
+                />
                 <div className="dropdown-content">
                   <Link to="/login">Iniciar sesión</Link>
                   <Link to="/register">Crear una cuenta</Link>

@@ -6,11 +6,11 @@ const About = () => {
   return (
     <>
       <Navbar />
-      <div className="about-page">
-        <h1 className="about-title">Sobre Nosotros</h1>
+      <div className="max-w-4xl my-5 mx-auto leading-10">
+        <h1 className="text-center text-4xl mb-8 text-(--color-dark)">Sobre Nosotros</h1>
 
-        <section className="about-section">
-          <h2>Nuestra Historia</h2>
+        <section className="mb-8">
+          <h2 className="text-2xl mb-2.5 text-(--color-secondary)">Nuestra Historia</h2>
           <p>
             E-Shop Deluxe nació con el objetivo de ofrecer productos de calidad al
             mejor precio. Empezamos como un pequeño emprendimiento familiar y
@@ -19,8 +19,8 @@ const About = () => {
           </p>
         </section>
 
-        <section className="about-section">
-          <h2>Nuestra Misión</h2>
+        <section className="mb-8">
+          <h2 className="text-2xl mb-2.5 text-(--color-secondary)">Nuestra Misión</h2>
           <p>
             Queremos que cada cliente tenga una experiencia de compra simple,
             rápida y segura. Nos enfocamos en brindar atención personalizada y
@@ -28,8 +28,8 @@ const About = () => {
           </p>
         </section>
 
-        <section className="about-section">
-          <h2>Nuestros Valores</h2>
+        <section className="mb-8">
+          <h2 className="text-2xl mb-2.5 text-(--color-secondary)">Nuestros Valores</h2>
           <ul>
             <li>✔ Compromiso con la calidad</li>
             <li>✔ Atención al cliente cercana</li>
@@ -38,8 +38,8 @@ const About = () => {
           </ul>
         </section>
 
-        <section className="about-section">
-          <h2>¿Por qué elegirnos?</h2>
+        <section className="mb-8">
+          <h2 className="text-2xl mb-2.5 text-(--color-secondary)">¿Por qué elegirnos?</h2>
           <p>
             Porque trabajamos día a día para ofrecerte lo mejor. Tu satisfacción
             es nuestra prioridad.
