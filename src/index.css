@@ -4,5 +4,34 @@
 
 body {
   margin: 0;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  /* font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; */
+  font-family: '.epunda-sans-google', sans-serif;
+}
+
+.epunda-sans-google {
+  font-family: "Epunda Sans", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+}
+
+:root {
+  --color-primary: #d185d1;
+  --color-primary-lighter: #cfb8cd;
+  --color-secondary: #8b488b;
+  --color-secondary-dark: #632c63;
+  --color-green: #4caf50;
+  --color-green-dark: #29692b;
+  --color-green-darker: #134115;
+  --color-red: #b92222;
+  --color-red-dark: #9e0a0a;
+  --color-dark: #333;
+  --color-gray-dark: #444;
+  --color-gray: #555;
+  --color-gray-light: #aaa;
+  --color-light: #ddd;
+  --color-lighter: #eee;
+  --color-lightest: #fff;
+  --color-transparent-o4: #0000004d;
+  --color-transparent-o6: #0000004d;
 }

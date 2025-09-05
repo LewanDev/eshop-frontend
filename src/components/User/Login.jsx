@@ -2,6 +2,7 @@ import { useState } from "react";
 import { login } from "../../services/auth";
 import Navbar from "../NavBar/Navbar";
 import "./User.css";
+import Footer from "../Footer/Footer";
 
 const Login = () => {
   const [form, setForm] = useState({ email: "", password: "" });
@@ -70,6 +71,7 @@ const Login = () => {
         </form>
         {msg && <p>{msg}</p>}
       </div>
+      <Footer />
     </>
   );
 };

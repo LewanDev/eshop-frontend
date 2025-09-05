@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Navbar from "../NavBar/Navbar";
+import Footer from "../Footer/Footer";
 
 const API_BASE =
   import.meta.env.VITE_API_URL || "http://localhost:5000/api/auth";
@@ -102,6 +103,7 @@ const Profile = () => {
       <>
         <Navbar />
         <p style={{ fontSize: 20, textAlign: "center" }}>Cargando perfil...</p>
+        <Footer />
       </>
     );
   }
@@ -113,6 +115,7 @@ const Profile = () => {
         <p style={{ fontSize: 20, textAlign: "center" }}>
           No se encontró usuario. <a href="/login">Iniciar sesión</a>
         </p>
+        <Footer />
       </>
     );
   }
@@ -184,6 +187,7 @@ const Profile = () => {
           )}
         </div>
       </div>
+      <Footer />
     </>
   );
 };

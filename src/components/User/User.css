@@ -5,7 +5,7 @@
   margin: 20px;
   border-radius: 10px;
   text-align: start;
-  background-color: #eee;
+  background-color: var(--color-lighter);
   display: flex;
   flex-direction: column;
   margin: 30px auto;
@@ -47,7 +47,7 @@ input[type="tel"] {
   font-size: 16px;
   padding: 12px;
   display: inline-block;
-  border: 1px solid #ccc;
+  border: 1px solid var(--color-light);
   border-radius: 10px;
   box-sizing: border-box;
   text-align: start;
@@ -57,7 +57,7 @@ input[type="tel"] {
 .content-form button {
   width: 100%;
   background-color: #4caf50;
-  color: white;
+  color: var(--color-lightest);
   padding: 14px 20px;
   font-size: 14px;
   font-weight: bold;
@@ -67,12 +67,12 @@ input[type="tel"] {
   transition: all 0.5s;
 }
 .content-form button:hover {
-  background-color: #29692b;
+  background-color: var(--color-green-dark);
 }
 
 .content-form .btn-logout{
   width: 100%;
-  background-color: #a12727;
+  background-color: var(--color-red);
   color: white;
   padding: 14px 20px;
   font-size: 14px;
@@ -83,5 +83,5 @@ input[type="tel"] {
   transition: all 0.5s;
 }
 .content-form .btn-logout:hover{
-  background-color: #701313;
+  background-color: var(--color-red-dark);
 }

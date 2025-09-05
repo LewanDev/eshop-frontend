@@ -9,10 +9,7 @@ const Home = () => {
     <>
       <Navbar />
       <Banner />
-      <Title >Nuestros productos</Title>
-      <div className="product-card-container">
-        <Products />
-      </div>
+      
       <Footer />
     </>
   );

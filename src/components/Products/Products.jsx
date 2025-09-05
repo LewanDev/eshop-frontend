@@ -1,6 +1,9 @@
 import { useContext, useState, useEffect } from "react";
 import { Context } from "../../context/Context";
-import ProductDetail from "./ProductDetail"; // importamos el modal
+import ProductDetail from "./ProductDetail";
+import Navbar from "../NavBar/Navbar";
+import Footer from "../Footer/Footer";
+import Title from "../Misc/Title";
 
 import "./Products.css";
 
@@ -22,33 +25,40 @@ const Products = () => {
   const closeModal = () => {
     setSelectedProduct(null);
   };
-  
+
   return (
     <>
-      {products.map((product) => (
-        <div
-          className="card"
-          key={product.id}
-          onClick={() => openModal(product)}
-        >
-          <img src={product.img} alt={product.name} />
-          <span className="card-name">{product.name}</span>
-          <span className="card-price">${product.price}</span>
-          <button
-            className="btn-add-product"
-            onClick={(e) => {
-              e.stopPropagation();
-              addProduct(product);
-            }}
-          >
-            Agregar
-          </button>
-        </div>
-      ))}
+      <Navbar />
+      <Title>Nuestros productos</Title>
 
-      {selectedProduct && (
-        <ProductDetail product={selectedProduct} onClose={closeModal} />
-      )}
+      <div className="product-card-container">
+        {products.map((product) => (
+          <div
+            className="card"
+            key={product.id}
+            onClick={() => openModal(product)}
+          >
+            <img src={product.img} alt={product.name} />
+            <span className="card-name">{product.name}</span>
+            <span className="card-price">${product.price}</span>
+            <button
+              className="btn-add-product"
+              onClick={(e) => {
+                e.stopPropagation();
+                addProduct(product);
+              }}
+            >
+              Agregar
+            </button>
+          </div>
+        ))}
+
+        {selectedProduct && (
+          <ProductDetail product={selectedProduct} onClose={closeModal} />
+        )}
+      </div>
+
+      <Footer />
     </>
   );
 };

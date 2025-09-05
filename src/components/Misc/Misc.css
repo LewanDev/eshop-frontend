@@ -2,7 +2,7 @@
   font-size: 2rem;
   font-weight: bold;
   text-align: center;
-  color: #333;
+  color: var(--color-dark);
   position: relative;
 }
 
@@ -11,8 +11,8 @@
   display: block;
   width: 360px;
   height: 3px;
-  background: #cfb8cd;
-  margin: 12px auto 10px ;
+  background: var(--color-primary-lighter);
+  margin: 16px auto 10px ;
   border-radius: 2px;
 }
 
@@ -21,7 +21,7 @@
   display: block;
   width: 360px;
   height: 3px;
-  background: #cfb8cd;
+  background: var(--color-primary-lighter);
   margin: 12px auto 12px;
   border-radius: 2px;
 }

@@ -1,8 +1,8 @@
-.cart-content{
+.cart-content {
   margin: 25px 5px;
 }
 
-.cart-title{
+.cart-title {
   font-size: xx-large;
   font-weight: bold;
   margin: 40px;
@@ -13,7 +13,7 @@
   border-radius: 10px;
   display: flex;
   justify-content: space-around;
-  background-color: gainsboro;
+  background-color: var(--color-light);
   flex-wrap: wrap;
   margin: 30px;
   align-items: center;
@@ -50,30 +50,38 @@
 .btn-cart-confirm {
   border: none;
   outline: 0;
-  color: white;
+  color: var(--color-lighter);
   padding: 10px 20px;
-  background-color: #06811a;
+  background-color: var(--color-green-dark);
   cursor: pointer;
   font-size: 18px;
   border-radius: 10px;
+  transition: all 0.5s;
+}
+
+.btn-cart-confirm:hover {
+  background-color: var(--color-green-darker);
 }
 
 .btn-cart-clear {
   border: none;
   outline: 0;
-  color: white;
+  color: var(--color-lighter);
   padding: 10px 20px;
-  background-color: #d62828;
+  background-color: var(--color-red);
   cursor: pointer;
   font-size: 18px;
   border-radius: 10px;
+  transition: all 0.5s;
+}
+.btn-cart-clear:hover {
+  background-color: var(--color-red-dark);
 }
 
 .cart-btn-delete {
   cursor: pointer;
 }
 
-/*** ITEM COUNTER ***/
 .cart-itemcounter {
   display: flex;
   flex-direction: column;
@@ -88,7 +96,6 @@
   display: flex;
   flex-direction: row;
   justify-content: space-around;
-
 }
 
 .cart-addremove .btn {
@@ -100,18 +107,42 @@
   font-weight: bold;
 }
 
-.cart-message-empty {
-  text-align: center;
-  margin-top: 40px;
-}
-
-.cart-items-total{
-  background-color: red;
-  color: white;
+.cart-items-total {
+  background-color: var(--color-red);
+  color: var(--color-lighter);
   border-radius: 50%;
   font-size: 12px;
   padding: 1px 4px;
-  top: 56px;
-  right: 14px;
   position: absolute;
+}
+
+.cart-page {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh; 
+}
+
+.cart-main {
+  flex: 1; 
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
+.cart-message-empty {
+  font-size: 1.5rem;
+  color: var(--color-gray);
+  text-align: center;
+}
+
+.cart-message-products {
+  font-size: 1.5rem;
+  color: var(--color-primary);
+  text-align: center;
+  text-decoration: none;
+  transition: all 0.5s;
+}
+.cart-message-products:hover{
+  color: var(--color-secondary);
 }

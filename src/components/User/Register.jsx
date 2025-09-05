@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { register } from "../../services/auth";
 import Navbar from "../NavBar/Navbar";
+import Footer from "../Footer/Footer";
 
 const Register = () => {
   const [form, setForm] = useState({
@@ -90,6 +91,7 @@ const Register = () => {
         </form>
         {msg && <p>{msg}</p>}
       </div>
+      <Footer />
     </>
   );
 };

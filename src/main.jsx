@@ -11,6 +11,7 @@ import Register from "./components/User/Register.jsx";
 import Profile from "./components/User/Profile.jsx";
 import Contact from "./components/Contact/Contact.jsx";
 import About from "./components/About/About.jsx";
+import Products from "./components/Products/Products.jsx";
 
 const router = createBrowserRouter([
   {
@@ -41,6 +42,10 @@ const router = createBrowserRouter([
     path: "/about",
     element: <About />,
   },
+  {
+    path: "/products",
+    element: <Products />
+  }
 ]);
 
 createRoot(document.getElementById("root")).render(

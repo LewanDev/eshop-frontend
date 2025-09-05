@@ -31,15 +31,16 @@ const Navbar = () => {
           <div className="navbar-user">
             {user ? (
               <>
-                <Link to="/profile">
-                  <button className="btn-profile">Mi perfil</button>
-                </Link>
-                <Link to="/cart">
-                  <h2 className="navbar-cart">
-                    🛒
-                    <TotalItems />
-                  </h2>
-                </Link>
+                <div className="dropdown">
+                  <button className="btn-profile">Mi perfil ▾</button>
+                  <div className="dropdown-content">
+                    <Link to="/profile">👤 Mi perfil </Link>
+                    <Link to="/cart">
+                      🛒 Mi carrito
+                      <TotalItems />
+                    </Link>
+                  </div>
+                </div>
               </>
             ) : (
               <div className="dropdown">
