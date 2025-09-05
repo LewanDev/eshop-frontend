@@ -1,28 +1,54 @@
+/*
+BANNER AUTOMATICO
 .banner {
+  height: 60vh;
   background-size: cover;
   background-position: center;
-  height: 40vh;
-
-  background-image: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1)),
-    url("https://images.unsplash.com/photo-1570032686516-2fe01ea09f5b?q=80&w=870&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D");
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-image 1s ease-in-out;
 }
 
 .banner-container {
+  background: rgba(0, 0, 0, 0.4);
+  padding: 20px 40px;
+  border-radius: 10px;
   text-align: center;
-  padding: 60px 0;
+  color: white;
 }
 
-.banner h1 {
+.banner-container h1 {
+  font-size: 3rem;
   margin: 0;
-  color: white;
-  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
-  font-size: 62px;
-  font-weight: bold;
 }
 
-.banner p {
-  font-size: 30px;
+.banner-container p {
+  font-size: 1.2rem;
+  margin-top: 10px;
+}
+*/
+
+
+.banner-swiper {
+  height: 60vh;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+.banner-slide {
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.banner-container {
+  background: rgba(0, 0, 0, 0.4);
+  padding: 20px 40px;
+  border-radius: 10px;
+  text-align: center;
   color: white;
-  opacity: 0.9;
-  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.21);
 }

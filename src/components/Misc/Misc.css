@@ -1,0 +1,28 @@
+.misc-title {
+  font-size: 2rem;
+  font-weight: bold;
+  text-align: center;
+  color: #333;
+  position: relative;
+}
+
+.misc-title::before {
+  content: "";
+  display: block;
+  width: 360px;
+  height: 3px;
+  background: #cfb8cd;
+  margin: 12px auto 10px ;
+  border-radius: 2px;
+}
+
+.misc-title::after {
+  content: "";
+  display: block;
+  width: 360px;
+  height: 3px;
+  background: #cfb8cd;
+  margin: 12px auto 12px;
+  border-radius: 2px;
+}
+
