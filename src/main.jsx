@@ -9,6 +9,8 @@ import "./index.css";
 import Login from "./components/User/Login.jsx";
 import Register from "./components/User/Register.jsx";
 import Profile from "./components/User/Profile.jsx";
+import Contact from "./components/Contact/Contact.jsx";
+import About from "./components/About/About.jsx";
 
 const router = createBrowserRouter([
   {
@@ -30,6 +32,14 @@ const router = createBrowserRouter([
   {
     path: "/profile",
     element: <Profile />,
+  },
+  {
+    path: "/contact",
+    element: <Contact />,
+  },
+  {
+    path: "/about",
+    element: <About />,
   },
 ]);
 

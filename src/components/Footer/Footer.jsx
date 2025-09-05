@@ -6,7 +6,7 @@ const Footer = () => {
       <div className="footer-container">
         {/* Columna 1: Logo / Nombre */}
         <div className="footer-section">
-          <h2 className="footer-logo">E-Shop Demo</h2>
+          <h2 className="footer-logo">E-Shop Deluxe</h2>
           <p>Los mejores productos al mejor precio</p>
         </div>
 
@@ -34,7 +34,7 @@ const Footer = () => {
 
       {/* Barra inferior */}
       <div className="footer-bottom">
-        <p>© {new Date().getFullYear()} E-Shop Demo. Todos los derechos reservados.</p>
+        <p>© {new Date().getFullYear()} E-Shop Deluxe. Todos los derechos reservados.</p>
       </div>
     </footer>
   );
