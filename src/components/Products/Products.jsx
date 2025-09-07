@@ -26,23 +26,31 @@ const Products = () => {
     setSelectedProduct(null);
   };
 
+  const formatPrice = (price, locale = "es-AR", currency = "ARS") => {
+    return new Intl.NumberFormat(locale, {
+      style: "currency",
+      currency: currency,
+      minimumFractionDigits: 0, // Adjust if you need decimals
+    }).format(price);
+  };
+
   return (
     <>
       <Navbar />
       <Title>Nuestros productos</Title>
 
-      <div className="product-card-container">
+      <div className="flex justify-around flex-wrap">
         {products.map((product) => (
           <div
-            className="card"
+            className="flex flex-col justify-between max-w-lg m-5 rounded-xl bg-(--color-lighter) p-2.5 items-center"
             key={product.id}
             onClick={() => openModal(product)}
           >
             <img src={product.img} alt={product.name} />
-            <span className="card-name">{product.name}</span>
-            <span className="card-price">${product.price}</span>
+            <span className="text-2xl font-bold py-2.5 px-0">{product.name}</span>
+            <span className="text-xl font-bold pb-2.5 text-(--color-secondary-dark)">{formatPrice(product.price)}</span>
             <button
-              className="btn-add-product"
+              className="border-2 border-solid border-transparent outline-0 p-2.5 self-center text-(--color-lightest) bg-(--color-secondary) text-center font-bold cursor-pointer w-full max-w-xs text-base rounded-xl mt-auto transition-all duration-500 hover:border-2 hover:border-solid hover:border-(--color-secondary) hover:rounded-xl hover:bg-(--color-lighter) hover:text-(--color-secondary)"
               onClick={(e) => {
                 e.stopPropagation();
                 addProduct(product);

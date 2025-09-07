@@ -1,6 +1,7 @@
 import { useContext } from "react";
 import { Context } from "../../context/Context";
 import CartItemCounter from "./CartItemCounter";
+import "./CartContent.css";
 
 const CartElements = () => {
   const { cart, setCart } = useContext(Context);
@@ -10,17 +11,34 @@ const CartElements = () => {
     setCart(newCart);
   };
 
+  const formatPrice = (price, locale = "es-AR", currency = "ARS") => {
+    return new Intl.NumberFormat(locale, {
+      style: "currency",
+      currency: currency,
+      minimumFractionDigits: 0, // Adjust if you need decimals
+    }).format(price);
+  };
+
   return cart.map((product) => {
     return (
-      <div className="cart-card-container" key={product.id}>
-        <img src={product.img} alt={product.name} />
-        <div className="cart-card-detail">
-          <h3>{product.name}</h3>
+      <div
+        className="py-2 rounded-xl flex flex-wrap gap-16 justify-center bg-(--color-lighter) text-start m-8 items-center w-2xl"
+        key={product.id}
+      >
+        <img
+          className="w-40 h-60 object-fill rounded-xl"
+          src={product.img}
+          alt={product.name}
+        />
+        <div className="flex flex-col justify-around gap-2.5">
+          <h3 className="text-2xl font-bold">{product.name}</h3>
+          <h3 className="text-xl font-bold text-(--color-secondary)">
+            {formatPrice(product.price * product.quanty)}
+          </h3>
           <CartItemCounter product={product} />
-          <h3>${product.price * product.quanty}</h3>
         </div>
         <h3
-          className="cart-btn-delete"
+          className="cursor-pointer self-start mt-4"
           onClick={() => deleteProduct(product.id)}
         >
           ❌

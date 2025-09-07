@@ -50,12 +50,13 @@ const Register = () => {
   return (
     <>
       <Navbar />
-      <div className="content">
+      <div className="max-w-lg min-w-3xs py-3.5 px-10 m-5 rounded-xl text-start bg-(--color-lighter) flex flex-col my-7 mx-auto gap-5">
         <span>Registro de nuevo usuario</span>
         <form onSubmit={handleSubmit}>
-          <div className="content-form">
+          <div className="flex flex-col justify-between gap-2.5">
             <label>Correo electrónico</label>
             <input
+              className="w-full text-base p-3 inline-block border-2 border-solid border-(--color-light) rounded-xl box-border text-start mb-3 bg-(--color-lightest)"
               id="email"
               name="email"
               type="email"
@@ -66,6 +67,7 @@ const Register = () => {
             />
             <label>Contraseña</label>
             <input
+              className="w-full text-base p-3 inline-block border-2 border-solid border-(--color-light) rounded-xl box-border text-start mb-3 bg-(--color-lightest)"
               id="password"
               type="password"
               name="password"
@@ -76,6 +78,7 @@ const Register = () => {
             />
             <label>Repetir contraseña</label>
             <input
+              className="w-full text-base p-3 inline-block border-2 border-solid border-(--color-light) rounded-xl box-border text-start mb-3 bg-(--color-lightest)"
               id="password2"
               type="password"
               name="password2"
@@ -84,7 +87,11 @@ const Register = () => {
               onChange={handleChange}
               required
             />
-            <button type="submit" disabled={loading}>
+            <button
+              type="submit"
+              disabled={loading}
+              className="w-full bg-(--color-green) text-(--color-lightest) py-3.5 px-5 text-base font-bold border-0 rounded-xl cursor-pointer transition-all duration-500 hover:bg-(--color-green-dark)"
+            >
               {loading ? "Espere por favor..." : "Registrarse"}
             </button>
           </div>

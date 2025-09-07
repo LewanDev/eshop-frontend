@@ -53,7 +53,8 @@ const Banner = () => {
     >
       <SwiperSlide>
         <div
-          className="banner-slide"
+          // className="banner-slide"
+          className="h-full bg-cover bg-center flex items-center justify-center"
           style={{ backgroundImage: "url('/images/banner1.jpg')" }}
         >
           {/* 
@@ -66,7 +67,7 @@ const Banner = () => {
       </SwiperSlide>
       <SwiperSlide>
         <div
-          className="banner-slide"
+          className="h-full bg-cover bg-center flex items-center justify-center"
           style={{ backgroundImage: "url('/images/banner2.jpg')" }}
         >
           {/* 
@@ -79,7 +80,7 @@ const Banner = () => {
       </SwiperSlide>
       <SwiperSlide>
         <div
-          className="banner-slide"
+          className="h-full bg-cover bg-center flex items-center justify-center"
           style={{ backgroundImage: "url('/images/banner3.jpg')" }}
         >
           {/*

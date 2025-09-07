@@ -3,7 +3,7 @@ import "./CartContent.css";
 const CartTitle = () => {
   return (
     <>
-      <span className="cart-title">Carrito de compras</span>
+      <span className="text-2xl font-bold m-10">Carrito de compras</span>
     </>
   );
 };

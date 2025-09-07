@@ -18,13 +18,13 @@ const CartItemCounter = ({ product }) => {
   };
 
   return (
-    <div className="cart-itemcounter">
-      <div className="cart-addremove">
-        <p className="btn" onClick={decrease}>
+    <div className="flex flex-col">
+      <div className="flex flex-row gap-4 items-center">
+        <p className="text-sm cursor-pointer" onClick={decrease}>
           ➖
         </p>
-        <p className="quanty">{product.quanty}</p>
-        <p className="btn" onClick={() => addProduct(product)}>
+        <p className="text-2xl font-bold">{product.quanty}</p>
+        <p className="text-sm cursor-pointer" onClick={() => addProduct(product)}>
           ➕
         </p>
       </div>
