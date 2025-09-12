@@ -12,6 +12,9 @@ import Profile from "./components/User/Profile.jsx";
 import Contact from "./components/Contact/Contact.jsx";
 import About from "./components/About/About.jsx";
 import Products from "./components/Products/Products.jsx";
+import Admin from "./components/Admin/Admin.jsx";
+import NewItem from "./components/Admin/new-item/NewItem.jsx";
+import ImportItems from "./components/Admin/Import-Items/ImportItems.jsx";
 
 const router = createBrowserRouter([
   {
@@ -45,7 +48,19 @@ const router = createBrowserRouter([
   {
     path: "/products",
     element: <Products />
-  }
+  },
+  {
+    path: "/admin",
+    element: <Admin />
+  },
+  {
+    path: "/admin/new-item",
+    element: <NewItem />
+  },
+  {
+    path: "/admin/import-items",
+    element: <ImportItems />
+  },
 ]);
 
 createRoot(document.getElementById("root")).render(

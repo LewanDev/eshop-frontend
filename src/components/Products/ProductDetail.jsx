@@ -1,15 +1,10 @@
 import { useContext } from "react";
 import { Context } from "../../context/Context";
+import formatPrice from "../../utils/formatPrice";
 
 const ProductDetail = ({ product, onClose }) => {
   const { addProduct } = useContext(Context);
-  const formatPrice = (price, locale = "es-AR", currency = "ARS") => {
-    return new Intl.NumberFormat(locale, {
-      style: "currency",
-      currency: currency,
-      minimumFractionDigits: 0, // Adjust if you need decimals
-    }).format(price);
-  };
+
   return (
     <div
       className="fixed top-0 left-0 w-full h-full bg-(--color-transparent-o6) flex justify-center items-center"

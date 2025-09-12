@@ -52,9 +52,12 @@ body {
   --color-green-dark: #29692b;
   --color-green-darker: #134115;
   --color-red: #b92222;
+  --color-red-dark: #9e0a0a;
+  --color-yellow: #c4b10e;
+  --color-yellow-dark: #887b0a;
+
   --color-darkest: #111;
   --color-darker: #222;
-  --color-red-dark: #9e0a0a;
   --color-dark: #333;
   --color-gray-dark: #444;
   --color-gray: #555;
@@ -70,7 +73,7 @@ body {
 
 
 :root {
-  --color-primary: #d185d1;
+    --color-primary: #d185d1;
   --color-primary-lighter: #cfb8cd;
   --color-secondary: #8b488b;
   --color-secondary-dark: #632c63;
@@ -78,9 +81,12 @@ body {
   --color-green-dark: #29692b;
   --color-green-darker: #134115;
   --color-red: #b92222;
+  --color-red-dark: #9e0a0a;
+  --color-yellow: #9c8a00;
+  --color-yellow-dark: #665a00;
+
   --color-darkest: #111;
   --color-darker: #222;
-  --color-red-dark: #9e0a0a;
   --color-dark: #333;
   --color-gray-dark: #444;
   --color-gray: #555;
@@ -90,4 +96,7 @@ body {
   --color-lightest: #fff;
   --color-transparent-o4: #0000004d;
   --color-transparent-o6: #0000004d;
+
+  --font-roboto: "Roboto", sans-serif; 
+  --font-ptserif: "PT Serif", serif;
 }

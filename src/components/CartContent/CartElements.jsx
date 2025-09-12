@@ -1,6 +1,7 @@
 import { useContext } from "react";
 import { Context } from "../../context/Context";
 import CartItemCounter from "./CartItemCounter";
+import formatPrice from "../../utils/formatPrice";
 import "./CartContent.css";
 
 const CartElements = () => {
@@ -9,14 +10,6 @@ const CartElements = () => {
   const deleteProduct = (_id) => {
     const newCart = cart.filter((element) => element.id !== _id);
     setCart(newCart);
-  };
-
-  const formatPrice = (price, locale = "es-AR", currency = "ARS") => {
-    return new Intl.NumberFormat(locale, {
-      style: "currency",
-      currency: currency,
-      minimumFractionDigits: 0, // Adjust if you need decimals
-    }).format(price);
   };
 
   return cart.map((product) => {

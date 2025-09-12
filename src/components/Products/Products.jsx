@@ -4,6 +4,7 @@ import ProductDetail from "./ProductDetail";
 import Navbar from "../NavBar/Navbar";
 import Footer from "../Footer/Footer";
 import Title from "../Misc/Title";
+import formatPrice from "../../utils/formatPrice";
 
 import "./Products.css";
 
@@ -24,14 +25,6 @@ const Products = () => {
 
   const closeModal = () => {
     setSelectedProduct(null);
-  };
-
-  const formatPrice = (price, locale = "es-AR", currency = "ARS") => {
-    return new Intl.NumberFormat(locale, {
-      style: "currency",
-      currency: currency,
-      minimumFractionDigits: 0, // Adjust if you need decimals
-    }).format(price);
   };
 
   return (
