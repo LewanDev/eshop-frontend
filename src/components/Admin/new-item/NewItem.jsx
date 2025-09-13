@@ -3,7 +3,8 @@ import Navbar from "../../NavBar/Navbar";
 import Footer from "../../Footer/Footer";
 import formatPrice from "../../../utils/formatPrice";
 
-const API_URL = "http://localhost:5000/api/auth"; // tu backend
+const API_URL = import.meta.env.VITE_API_URL || "http://localhost:3000/api/auth";
+
 
 const NewItem = () => {
   const [items, setItems] = useState([]);

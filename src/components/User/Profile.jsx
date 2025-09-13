@@ -4,7 +4,7 @@ import Navbar from "../NavBar/Navbar";
 import Footer from "../Footer/Footer";
 
 const API_BASE =
-  import.meta.env.VITE_API_URL || "http://localhost:5000/api/auth";
+  import.meta.env.VITE_API_URL || "http://localhost:3000/api/auth";
 
 const Profile = () => {
   const [user, setUser] = useState(null);
