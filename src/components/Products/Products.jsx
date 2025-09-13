@@ -39,7 +39,7 @@ const Products = () => {
             key={product.id}
             onClick={() => openModal(product)}
           >
-            <img src={product.img} alt={product.name} />
+            <img src={product.img} alt={product.name} className="w-3xs" />
             <span className="text-2xl font-bold py-2.5 px-0">{product.name}</span>
             <span className="text-xl font-bold pb-2.5 text-(--color-secondary-dark)">{formatPrice(product.price)}</span>
             <button
@@ -63,17 +63,4 @@ const Products = () => {
     </>
   );
 };
-/*
-  return products.map((product) => {
-    return (
-      <div className="card" key={product.id}>
-        <img src={product.img} alt={product.name} />
-        <span className="card-name">{product.name}</span>
-        <span className="card-price">${product.price}</span>
-        <button onClick={() => addProduct(product)}>Agregar</button>
-      </div>
-    );
-  });
-};
-*/
 export default Products;
