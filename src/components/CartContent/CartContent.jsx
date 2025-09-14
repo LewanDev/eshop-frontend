@@ -7,18 +7,25 @@ import CartTotal from "./CartTotal";
 import Footer from "../Footer/Footer";
 
 import "./CartContent.css";
-import CartTitle from "./CartTitle";
 import { Link } from "react-router-dom";
 
 const CartContent = () => {
   const { cart } = useContext(Context);
+  // Calcula la suma total de unidades
+  const totalItems = cart.reduce((acc, item) => acc + item.quanty, 0);
+
   return (
     <div className="flex flex-col min-h-screen">
       <Navbar />
       <main className="flex flex-1 justify-center items-center p-5">
         {cart.length > 0 ? (
           <div className="my-6 mx-1">
-            <CartTitle />
+            <div className="flex flex-row justify-around items-center">
+              <span className="text-3xl font-bold">Carrito de compras</span>
+              <span className="text-xl italic">
+                {totalItems} Artículo{totalItems !== 1 ? "s" : ""}
+              </span>
+            </div>
             <CartElements />
             <CartTotal />
           </div>

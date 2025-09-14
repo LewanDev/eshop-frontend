@@ -5,7 +5,7 @@ const CartTotal = () => {
   const { cart, clearCart, confirmCart } = useContext(Context);
 
   const total = cart.reduce(
-    (acc, element) => acc + element.price * element.quanty,
+    (acc, element) => acc + element.price1 * element.quanty,
     0
   );
   const formatPrice = (price, locale = "es-AR", currency = "ARS") => {
@@ -16,18 +16,18 @@ const CartTotal = () => {
     }).format(price);
   };
   return (
-    <div className="flex flex-col items-center gap-2.5">
+    <div className="flex flex-col items-center gap-5">
       <span className="text-2xl font-bold">Total a pagar: {formatPrice(total)}</span>
-      <div className="text-center text-xl flex flex-row items-center justify-center gap-2.5">
+      <div className="flex flex-row gap-2.5">
         <button
-          onClick={clearCart}
-          className="border-0 outline-0 text-(--color-lighter) py-2.5 px-5 bg-(--color-green-dark) cursor-pointer text-lg rounded-xl transition-all duration-500 hover:bg-(--color-green-darker)"
+          onClick={confirmCart}
+          className="btn-green"
         >
           Confirmar pedido
         </button>
         <button
-          onClick={confirmCart}
-          className="border-0 outline-0 text-(--color-lighter) py-2.5 px-5 bg-(--color-red) cursor-pointer text-lg rounded-xl transition-all duration-500 hover:bg-(--color-red-dark)"
+          onClick={clearCart}
+          className="btn-red"
         >
           Vaciar carrito
         </button>

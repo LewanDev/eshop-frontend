@@ -1,64 +1,51 @@
-import { useContext, useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import { Context } from "../../context/Context";
 import ProductDetail from "./ProductDetail";
 import Navbar from "../NavBar/Navbar";
 import Footer from "../Footer/Footer";
 import Title from "../Misc/Title";
-import formatPrice from "../../utils/formatPrice";
+import ProductCard from "./ProductCard";
 
 import "./Products.css";
 
+const API_URL =
+  import.meta.env.VITE_API_URL || "http://localhost:3000/api/auth";
+
+const BASE_URL = import.meta.env.VITE_BASE_URL || "http://localhost:3000";
+
 const Products = () => {
   const [products, setProducts] = useState([]);
-  const [selectedProduct, setSelectedProduct] = useState(null);
-  const { addProduct } = useContext(Context);
 
+  // Data hardcodeada
+  /*
   useEffect(() => {
     fetch("data.json")
       .then((response) => response.json())
       .then((data) => setProducts(data));
   }, []);
-
-  const openModal = (product) => {
-    setSelectedProduct(product);
-  };
-
-  const closeModal = () => {
-    setSelectedProduct(null);
-  };
+*/
+  useEffect(() => {
+    const fetchProducts = async () => {
+      try {
+        const res = await fetch(`${API_URL}/items`);
+        const data = await res.json();
+        setProducts(data);
+      } catch (err) {
+        console.error("Error al obtener productos:", err);
+      }
+    };
+    fetchProducts();
+  }, []);
 
   return (
     <>
       <Navbar />
       <Title>Nuestros productos</Title>
-
-      <div className="flex justify-around flex-wrap">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 p-6">
         {products.map((product) => (
-          <div
-            className="flex flex-col justify-between max-w-lg m-5 rounded-xl bg-(--color-lighter) p-2.5 items-center"
-            key={product.id}
-            onClick={() => openModal(product)}
-          >
-            <img src={product.img} alt={product.name} className="w-3xs" />
-            <span className="text-2xl font-bold py-2.5 px-0">{product.name}</span>
-            <span className="text-xl font-bold pb-2.5 text-(--color-secondary-dark)">{formatPrice(product.price)}</span>
-            <button
-              className="border-2 border-solid border-transparent outline-0 p-2.5 self-center text-(--color-lightest) bg-(--color-secondary) text-center font-bold cursor-pointer w-full max-w-xs text-base rounded-xl mt-auto transition-all duration-500 hover:border-2 hover:border-solid hover:border-(--color-secondary) hover:rounded-xl hover:bg-(--color-lighter) hover:text-(--color-secondary)"
-              onClick={(e) => {
-                e.stopPropagation();
-                addProduct(product);
-              }}
-            >
-              Agregar
-            </button>
-          </div>
+          <ProductCard key={product._id} product={product} />
         ))}
-
-        {selectedProduct && (
-          <ProductDetail product={selectedProduct} onClose={closeModal} />
-        )}
       </div>
-
       <Footer />
     </>
   );

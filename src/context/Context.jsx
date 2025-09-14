@@ -11,17 +11,18 @@ const ContextProvider = ({ children }) => {
   }, [cart]);
 
   const addProduct = (product) => {
-    const productExists = cart.find((item) => item.id === product.id);
+    const productExists = cart.find((item) => item.cartId === product.cartId);
+
     if (productExists) {
       setCart(
         cart.map((item) =>
-          item.id === product.id
-            ? { ...product, quanty: productExists.quanty + 1 }
+          item.cartId === product.cartId
+            ? { ...item, quanty: item.quanty + 1 }
             : item
         )
       );
     } else {
-      setCart([...cart, product]);
+      setCart([...cart, { ...product, quanty: 1 }]);
     }
   };
 
@@ -30,15 +31,13 @@ const ContextProvider = ({ children }) => {
   };
 
   const confirmCart = () => {
-    
-  }
+    // acá podés mandar el pedido al backend
+  };
 
   return (
-    <>
-      <Context.Provider value={{ cart, setCart, addProduct, clearCart }}>
-        {children}
-      </Context.Provider>
-    </>
+    <Context.Provider value={{ cart, setCart, addProduct, clearCart }}>
+      {children}
+    </Context.Provider>
   );
 };
 

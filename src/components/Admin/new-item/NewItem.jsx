@@ -107,6 +107,7 @@ const NewItem = () => {
         data.append("description", form.description);
         data.append("price1", form.price1);
         data.append("currency", form.currency);
+        data.append("measure", form.measure);
 
         // solo en creación: enviamos variantes de color
         if (form.colorVariants?.length > 0) {
@@ -136,7 +137,8 @@ const NewItem = () => {
         description: "",
         price1: "",
         currency: "ARS",
-        colorVariants: [], // 👈 lo limpiamos también
+        measure: "",
+        colorVariants: [], 
       });
       setEditingCode(null);
       setIsModalOpen(false);
@@ -154,6 +156,7 @@ const NewItem = () => {
       description: item.description,
       price1: item.price1,
       currency: item.currency,
+      measure: item.measure,
       colorVariants: Array.isArray(item.colorVariants)
         ? item.colorVariants
         : [], // <-- fallback
@@ -196,11 +199,12 @@ const NewItem = () => {
                 description: "",
                 price1: "",
                 currency: "ARS",
+                measure: "",
                 colorVariants: [],
               });
               setIsModalOpen(true);
             }}
-            className="bg-(--color-green) text-(--color-lightest) py-3.5 px-5 text-base font-bold border-0 rounded-xl cursor-pointer transition-all duration-500 hover:bg-(--color-green-dark)"
+            className="btn-green"
           >
             Agregar Item
           </button>
@@ -237,22 +241,99 @@ const NewItem = () => {
                   <td className="p-2 flex gap-2 justify-center">
                     <button
                       onClick={() => handleEdit(item)}
-                      className="bg-(--color-yellow) text-(--color-lightest) py-3.5 px-5 text-base font-bold border-0 rounded-xl cursor-pointer transition-all duration-500 hover:bg-(--color-yellow-dark)"
+                      className="btn-yellow-icon"
                     >
-                      Editar
+                      <svg
+                        width="32px"
+                        height="32px"
+                        viewBox="0 0 24.00 24.00"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                        <g
+                          id="SVGRepo_tracerCarrier"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        ></g>
+                        <g id="SVGRepo_iconCarrier">
+                          {" "}
+                          <path
+                            d="M12 3.99997H6C4.89543 3.99997 4 4.8954 4 5.99997V18C4 19.1045 4.89543 20 6 20H18C19.1046 20 20 19.1045 20 18V12M18.4142 8.41417L19.5 7.32842C20.281 6.54737 20.281 5.28104 19.5 4.5C18.7189 3.71895 17.4526 3.71895 16.6715 4.50001L15.5858 5.58575M18.4142 8.41417L12.3779 14.4505C12.0987 14.7297 11.7431 14.9201 11.356 14.9975L8.41422 15.5858L9.00257 12.6441C9.08001 12.2569 9.27032 11.9013 9.54951 11.6221L15.5858 5.58575M18.4142 8.41417L15.5858 5.58575"
+                            stroke="#ffffff"
+                            stroke-width="1.2"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                          ></path>{" "}
+                        </g>
+                      </svg>
                     </button>
                     <button
                       onClick={() => handleDelete(item.code)}
-                      className="bg-(--color-red) text-(--color-lightest) py-3.5 px-5 text-base font-bold border-0 rounded-xl cursor-pointer transition-all duration-500 hover:bg-(--color-red-dark)"
+                      className="btn-red-icon"
                     >
-                      Eliminar
+                      <svg
+                        width="32px"
+                        height="32px"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                        <g
+                          id="SVGRepo_tracerCarrier"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        ></g>
+                        <g id="SVGRepo_iconCarrier">
+                          {" "}
+                          <path
+                            d="M10 12V17"
+                            stroke="#ffffff"
+                            stroke-width="1.2"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                          ></path>{" "}
+                          <path
+                            d="M14 12V17"
+                            stroke="#ffffff"
+                            stroke-width="1.2"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                          ></path>{" "}
+                          <path
+                            d="M4 7H20"
+                            stroke="#ffffff"
+                            stroke-width="1.2"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                          ></path>{" "}
+                          <path
+                            d="M6 10V18C6 19.6569 7.34315 21 9 21H15C16.6569 21 18 19.6569 18 18V10"
+                            stroke="#ffffff"
+                            stroke-width="1.2"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                          ></path>{" "}
+                          <path
+                            d="M9 5C9 3.89543 9.89543 3 11 3H13C14.1046 3 15 3.89543 15 5V7H9V5Z"
+                            stroke="#ffffff"
+                            stroke-width="1.2"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                          ></path>{" "}
+                        </g>
+                      </svg>
                     </button>
                   </td>
                 </tr>
               ))
             ) : (
               <tr>
-                <td colSpan="5" className="text-center py-4 text-(--color-gray)">
+                <td
+                  colSpan="5"
+                  className="text-center py-4 text-(--color-gray)"
+                >
                   No hay artículos cargados
                 </td>
               </tr>
@@ -281,7 +362,7 @@ const NewItem = () => {
                   placeholder="Código"
                   value={form.code}
                   onChange={handleChange}
-                  className="text-base p-3 inline-block border-2 border-solid border-(--color-light) rounded-xl box-border text-start bg-(--color-lightest)"
+                  className="input-light"
                   disabled={!!editingCode}
                   required
                 />
@@ -291,7 +372,7 @@ const NewItem = () => {
                   placeholder="Nombre"
                   value={form.name}
                   onChange={handleChange}
-                  className="w-full text-base p-3 inline-block border-2 border-solid border-(--color-light) rounded-xl box-border text-start bg-(--color-lightest)"
+                  className="w-full input-light"
                 />
               </div>
               <input
@@ -300,7 +381,7 @@ const NewItem = () => {
                 placeholder="Descripción"
                 value={form.description}
                 onChange={handleChange}
-                className="w-full text-base p-3 inline-block border-2 border-solid border-(--color-light) rounded-xl box-border text-start bg-(--color-lightest)"
+                className="w-full input-light"
               />
               <div className="flex flex-row gap-2">
                 <input
@@ -309,13 +390,13 @@ const NewItem = () => {
                   placeholder="Precio"
                   value={form.price1}
                   onChange={handleChange}
-                  className="text-base p-3 inline-block border-2 border-solid border-(--color-light) rounded-xl box-border text-start bg-(--color-lightest)"
+                  className="input-light"
                 />
                 <select
                   name="currency"
                   value={form.currency}
                   onChange={handleChange}
-                  className="text-base py-3 px-4 inline-block border-2 border-solid border-(--color-light) rounded-xl box-border text-start bg-(--color-lightest)"
+                  className="input-light"
                 >
                   <option value="ARS">Pesos</option>
                   <option value="USD">Dólares</option>
@@ -326,7 +407,7 @@ const NewItem = () => {
                   placeholder="Medidas"
                   value={form.measure}
                   onChange={handleChange}
-                  className="w-full text-base p-3 inline-block border-2 border-solid border-(--color-light) rounded-xl box-border text-start bg-(--color-lightest)"
+                  className="w-full input-light"
                 />
               </div>
               {!editingCode && (
@@ -364,7 +445,7 @@ const NewItem = () => {
                   <button
                     type="button"
                     onClick={addColorVariant}
-                    className="w-full bg-(--color-secondary) text-(--color-lightest) py-3.5 px-5 text-base font-bold border-0 rounded-xl cursor-pointer transition-all duration-500 hover:bg-(--color-secondary-dark)"
+                    className="w-full btn-secondary"
                   >
                     ➕ Agregar nuevo color
                   </button>
@@ -374,14 +455,11 @@ const NewItem = () => {
                 <button
                   type="button"
                   onClick={() => setIsModalOpen(false)}
-                  className="w-full bg-(--color-red-dark) text-(--color-lightest) py-3.5 px-5 text-base font-bold border-0 rounded-xl cursor-pointer transition-all duration-500 hover:bg-(--color-red-darker)"
+                  className="w-full btn-red"
                 >
                   Cancelar
                 </button>
-                <button
-                  type="submit"
-                  className="w-full bg-(--color-green-dark) text-(--color-lightest) py-3.5 px-5 text-base font-bold border-0 rounded-xl cursor-pointer transition-all duration-500 hover:bg-(--color-green-darker)"
-                >
+                <button type="submit" className="w-full btn-green">
                   {editingCode ? "Actualizar" : "Agregar"}
                 </button>
               </div>

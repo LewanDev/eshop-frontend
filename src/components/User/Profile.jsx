@@ -123,7 +123,7 @@ const Profile = () => {
   return (
     <div className="flex flex-col min-h-screen ">
       <Navbar />
-      <div className="flex-1 w-xl py-3.5 px-10 m-5 rounded-xl text-start bg-(--color-lighter) flex flex-col my-7 mx-auto gap-5">
+      <div className="flex-1 w-xl py-4 px-10 rounded-xl text-start bg-(--color-lighter) flex flex-col mx-auto gap-5">
         <h2 className="text-2xl font-bold">Mis datos</h2>
         <div className="flex-1 flex flex-col h-full justify-between">
           {!editMode ? (
@@ -152,29 +152,29 @@ const Profile = () => {
               </div>
               <div className="flex flex-row gap-2.5 h-12">
                 <button
-                  className="w-full bg-(--color-green) text-(--color-lightest) py-3.5 px-5 text-base font-bold border-0 rounded-xl cursor-pointer transition-all duration-500 hover:bg-(--color-green-dark)"
+                  className="w-full btn-green"
                   onClick={() => setEditMode(true)}
                 >
                   Editar
                 </button>
                 <button
                   onClick={handleLogout}
-                  className="w-full bg-(--color-red) text-(--color-lightest) py-3.5 px-5 text-base font-bold border-0 rounded-xl cursor-pointer transition-all duration-500 hover:bg-(--color-red-dark)"
+                  className="w-full btn-red"
                 >
                   Cerrar sesión
                 </button>
               </div>
             </div>
           ) : (
-            <div className="flex flex-col">
-              <div className="flex flex-row gap-2 mb-2.5">
+            <div className="flex flex-col gap-4">
+              <div className="flex flex-row gap-3">
                 <label>Email:</label>
                 <strong>{user.email}</strong>
               </div>
               <div className="flex-1 flex flex-col items-start">
                 <label className="text-(--color-gray) ml-2.5">Nombre</label>
                 <input
-                  className="w-full text-base p-3 inline-block border-2 border-solid border-(--color-light) rounded-xl box-border text-start mb-3 bg-(--color-lightest)"
+                  className="w-full input-light"
                   type="text"
                   name="name"
                   placeholder="Razón Social"
@@ -186,7 +186,7 @@ const Profile = () => {
               <div className="flex flex-col items-start">
                 <label className="text-(--color-gray) ml-2.5">Documento</label>
                 <input
-                  className="w-full text-base p-3 inline-block border-2 border-solid border-(--color-light) rounded-xl box-border text-start mb-3 bg-(--color-lightest)"
+                  className="w-full input-light"
                   type="text"
                   name="dni"
                   placeholder="Documento"
@@ -198,7 +198,7 @@ const Profile = () => {
               <div className="flex flex-col items-start">
                 <label className="text-(--color-gray) ml-2.5">Dirección</label>
                 <input
-                  className="w-full text-base p-3 inline-block border-2 border-solid border-(--color-light) rounded-xl box-border text-start mb-3 bg-(--color-lightest)"
+                  className="w-full input-light"
                   type="text"
                   name="address"
                   placeholder="Dirección"
@@ -210,7 +210,7 @@ const Profile = () => {
               <div className="flex flex-col items-start">
                 <label className="text-(--color-gray) ml-2.5">Teléfono</label>
                 <input
-                  className="w-full text-base p-3 inline-block border-2 border-solid border-(--color-light) rounded-xl box-border text-start mb-3 bg-(--color-lightest)"
+                  className="w-full input-light"
                   type="text"
                   name="phone"
                   placeholder="Teléfono"
@@ -221,13 +221,13 @@ const Profile = () => {
 
               <div className="flex flex-row gap-2.5 h-12">
                 <button
-                  className="w-full bg-(--color-green) text-(--color-lightest) py-3.5 px-5 text-base font-bold border-0 rounded-xl cursor-pointer transition-all duration-500 hover:bg-(--color-green-dark)"
+                  className="w-full btn-green"
                   onClick={handleSave}
                 >
                   Guardar
                 </button>
                 <button
-                  className="w-full bg-(--color-red) text-(--color-lightest) py-3.5 px-5 text-base font-bold border-0 rounded-xl cursor-pointer transition-all duration-500 hover:bg-(--color-red-dark)"
+                  className="w-full btn-red"
                   onClick={() => setEditMode(false)}
                 >
                   Cancelar

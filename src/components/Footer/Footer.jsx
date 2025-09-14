@@ -1,8 +1,6 @@
-import "./Footer.css";
-
 const Footer = () => {
   return (
-    <footer className="bg-(--color-dark) text-(--color-light) pt-10 pb-5 py-2.5 mt-10">
+    <footer className="bg-(--color-dark) text-(--color-light) pt-10 pb-5 py-2.5">
       <div className="flex flex-wrap justify-between m-auto max-w-7xl gap-5">
         
         <div className="flex flex-1 basis-[200px] flex-col justify-center  gap-5">

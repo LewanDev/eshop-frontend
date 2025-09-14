@@ -46,7 +46,7 @@ const Login = () => {
           <div className="flex flex-col justify-between gap-2.5">
             <label>Correo electrónico</label>
             <input
-              className="w-full text-base p-3 inline-block border-2 border-solid border-(--color-light) rounded-xl box-border text-start mb-3 bg-(--color-lightest)"
+              className="w-full input-light"
               name="email"
               id="name"
               type="email"
@@ -57,7 +57,7 @@ const Login = () => {
             />
             <label>Contraseña</label>
             <input
-              className="w-full text-base p-3 inline-block border-2 border-solid border-(--color-light) rounded-xl box-border text-start mb-3 bg-(--color-lightest)"
+              className="w-full input-light"
               id="password"
               type="password"
               name="password"
@@ -69,7 +69,7 @@ const Login = () => {
             <button
               type="submit"
               disabled={loading}
-              className="w-full bg-(--color-green) text-(--color-lightest) py-3.5 px-5 text-base font-bold border-0 rounded-xl cursor-pointer transition-all duration-500 hover:bg-(--color-green-dark)"
+              className="w-full btn-green"
             >
               {loading ? "Espere por favor..." : "Ingresar"}
             </button>

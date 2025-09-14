@@ -2,9 +2,8 @@
 @import "tailwindcss";
 @tailwind utilities;
 
-
-*{
-  font-family: 'PT Serif', serif;
+* {
+  font-family: "PT Serif", serif;
 }
 body {
   margin: 0;
@@ -43,7 +42,7 @@ body {
   font-style: italic;
 }
 
-@theme{
+@theme {
   --color-primary: #d185d1;
   --color-primary-lighter: #cfb8cd;
   --color-secondary: #8b488b;
@@ -62,18 +61,20 @@ body {
   --color-gray-dark: #444;
   --color-gray: #555;
   --color-gray-light: #aaa;
+  --color-gray-lighter: #bbb;
+  --color-gray-lightest: #ccc;
+
   --color-light: #ddd;
   --color-lighter: #eee;
   --color-lightest: #fff;
   --color-transparent-o4: #0000004d;
   --color-transparent-o6: #0000004d;
-  --font-roboto: "Roboto", sans-serif; 
+  --font-roboto: "Roboto", sans-serif;
   --font-ptserif: "PT Serif", serif;
 }
 
-
 :root {
-    --color-primary: #d185d1;
+  --color-primary: #d185d1;
   --color-primary-lighter: #cfb8cd;
   --color-secondary: #8b488b;
   --color-secondary-dark: #632c63;
@@ -98,6 +99,52 @@ body {
   --color-transparent-o4: #0000004d;
   --color-transparent-o6: #0000004d;
 
-  --font-roboto: "Roboto", sans-serif; 
+  --font-roboto: "Roboto", sans-serif;
   --font-ptserif: "PT Serif", serif;
+}
+
+.btn-secondary {
+  @apply bg-(--color-secondary) text-(--color-lightest) py-3.5 px-5 text-base font-bold border-0 rounded-xl cursor-pointer transition-all duration-500 hover:bg-(--color-secondary-dark);
+}
+
+.btn-secondary-2 {
+  @apply border-2 border-solid border-transparent outline-0 p-2.5 self-center text-(--color-lightest) bg-(--color-secondary) text-center font-bold cursor-pointer w-full max-w-xs text-base rounded-xl mt-auto transition-all duration-500 hover:border-2 hover:border-solid hover:border-(--color-secondary) hover:rounded-xl hover:bg-(--color-lighter) hover:text-(--color-secondary);
+}
+
+.btn-secondary-2-sm {
+  @apply border-2 border-solid border-transparent outline-0 py-1.5 text-(--color-lightest) bg-(--color-secondary) text-center font-bold cursor-pointer text-base rounded-xl transition-all duration-500 hover:border-2 hover:border-solid hover:border-(--color-secondary) hover:rounded-xl hover:bg-(--color-lighter) hover:text-(--color-secondary);
+}
+
+.btn-green {
+  @apply bg-(--color-green-dark) text-(--color-lightest) py-3.5 px-5 text-base font-bold border-0 rounded-xl cursor-pointer transition-all duration-500 hover:bg-(--color-green-darker);
+}
+
+.btn-red {
+  @apply bg-(--color-red-dark) text-(--color-lightest) py-3.5 px-5 text-base font-bold border-0 rounded-xl cursor-pointer transition-all duration-500 hover:bg-(--color-red-darker);
+}
+
+.btn-red-icon {
+  @apply bg-(--color-red-dark) p-2 border-0 rounded-2xl cursor-pointer transition-all duration-500 hover:bg-(--color-red-darker);
+}
+
+.btn-yellow {
+  @apply bg-(--color-yellow) text-(--color-lightest) py-3.5 px-5 text-base font-bold border-0 rounded-xl cursor-pointer transition-all duration-500 hover:bg-(--color-yellow-dark);
+}
+.btn-yellow-icon {
+  @apply bg-(--color-yellow) px-2 border-0 rounded-2xl cursor-pointer transition-all duration-500 hover:bg-(--color-yellow-dark);
+}
+
+.input-light {
+  @apply text-base p-3 inline-block border-2 border-solid border-(--color-light) rounded-xl box-border text-start bg-(--color-lightest);
+}
+
+.select-light {
+  @apply border border-(--color-gray-light) rounded-lg text-center w-40
+}
+
+.image-sm {
+  @apply h-60 object-contain border-1 border-(--color-lighter) rounded-2xl
+}
+.image-sm-1 {
+  @apply h-60 object-contain border-1 border-(--color-gray-lightest) rounded-2xl
 }

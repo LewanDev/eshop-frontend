@@ -1,5 +1,4 @@
 import { useState } from "react";
-import "./Contact.css";
 import Navbar from "../NavBar/Navbar";
 import Footer from "../Footer/Footer";
 
