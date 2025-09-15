@@ -69,7 +69,7 @@ export default function ProductCard({ product }) {
             </>
           ) : (
             <img
-              src="/placeholder.png"
+              src="/placeholder.jpg"
               alt="No disponible"
               className="w-full h-56 object-cover"
             />
@@ -77,15 +77,16 @@ export default function ProductCard({ product }) {
         </div>
 
         {/* Info corta */}
-        <div className="flex flex-row items-center p-4 justify-around">
-          <div className="flex flex-col">
-            <h3 className="text-lg font-bold">{product.name}</h3>
-            <span className="mt-2 text-xl font-semibold text-(--color-secondary)">
-              {formatPrice(product.price1)}
-            </span>
-          </div>
+        <div className="flex flex-col items-center p-4 gap-2 w-66">
+          <h3 className="text-lg font-bold">{product.name}</h3>
+          <span className="text-base font-semibold italic text-(--color-gray)">
+            {product.colorVariants[currentIndex].color}
+          </span>
+          <span className="text-xl font-semibold text-(--color-primary-dark)">
+            {formatPrice(product.price1)}
+          </span>
           <button
-            className="btn-secondary-2-sm w-30"
+            className="btn-primary-sm w-30"
             onClick={() => openModal(product)}
           >
             Ver
@@ -96,7 +97,6 @@ export default function ProductCard({ product }) {
       {/* Modal */}
       {selectedProduct && (
         <ProductDetail product={selectedProduct} onClose={closeModal} />
-        
       )}
     </>
   );

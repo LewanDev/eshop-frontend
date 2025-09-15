@@ -44,6 +44,7 @@ body {
 
 @theme {
   --color-primary: #d185d1;
+  --color-primary-dark: #9e579e;
   --color-primary-lighter: #cfb8cd;
   --color-secondary: #8b488b;
   --color-secondary-dark: #632c63;
@@ -101,6 +102,9 @@ body {
 
   --font-roboto: "Roboto", sans-serif;
   --font-ptserif: "PT Serif", serif;
+}
+.btn-primary-sm {
+  @apply bg-(--color-primary) text-(--color-lightest) py-2 text-base font-bold border-0 rounded-xl cursor-pointer transition-all duration-500 hover:bg-(--color-primary-dark);
 }
 
 .btn-secondary {

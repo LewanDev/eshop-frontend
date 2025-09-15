@@ -1,16 +1,15 @@
 import Footer from "../Footer/Footer";
 import Navbar from "../NavBar/Navbar";
-import "./About.css";
 
 const About = () => {
   return (
     <>
       <Navbar />
       <div className="max-w-4xl my-5 mx-auto leading-10">
-        <h1 className="text-center text-4xl mb-8 text-(--color-dark)">Sobre Nosotros</h1>
+        <h1 className="text-center text-4xl font-black my-12 text-(--color-dark)">Sobre Nosotros</h1>
 
         <section className="mb-8">
-          <h2 className="text-2xl mb-2.5 text-(--color-secondary)">Nuestra Historia</h2>
+          <h2 className="text-2xl mb-2.5 font-bold text-(--color-secondary)">Nuestra Historia</h2>
           <p>
             E-Shop Deluxe nació con el objetivo de ofrecer productos de calidad al
             mejor precio. Empezamos como un pequeño emprendimiento familiar y
@@ -20,7 +19,7 @@ const About = () => {
         </section>
 
         <section className="mb-8">
-          <h2 className="text-2xl mb-2.5 text-(--color-secondary)">Nuestra Misión</h2>
+          <h2 className="text-2xl mb-2.5 font-bold text-(--color-secondary)">Nuestra Misión</h2>
           <p>
             Queremos que cada cliente tenga una experiencia de compra simple,
             rápida y segura. Nos enfocamos en brindar atención personalizada y
@@ -29,7 +28,7 @@ const About = () => {
         </section>
 
         <section className="mb-8">
-          <h2 className="text-2xl mb-2.5 text-(--color-secondary)">Nuestros Valores</h2>
+          <h2 className="text-2xl mb-2.5 font-bold text-(--color-secondary)">Nuestros Valores</h2>
           <ul>
             <li>✔ Compromiso con la calidad</li>
             <li>✔ Atención al cliente cercana</li>
@@ -39,7 +38,7 @@ const About = () => {
         </section>
 
         <section className="mb-8">
-          <h2 className="text-2xl mb-2.5 text-(--color-secondary)">¿Por qué elegirnos?</h2>
+          <h2 className="text-2xl mb-2.5 font-bold text-(--color-secondary)">¿Por qué elegirnos?</h2>
           <p>
             Porque trabajamos día a día para ofrecerte lo mejor. Tu satisfacción
             es nuestra prioridad.
