@@ -15,15 +15,8 @@ const BASE_URL = import.meta.env.VITE_BASE_URL || "http://localhost:3000";
 
 const Products = () => {
   const [products, setProducts] = useState([]);
+  const [search, setSearch] = useState(""); // 🔹 estado para búsqueda
 
-  // Data hardcodeada
-  /*
-  useEffect(() => {
-    fetch("data.json")
-      .then((response) => response.json())
-      .then((data) => setProducts(data));
-  }, []);
-*/
   useEffect(() => {
     const fetchProducts = async () => {
       try {
@@ -37,14 +30,43 @@ const Products = () => {
     fetchProducts();
   }, []);
 
+  // 🔹 Normalizamos la búsqueda
+  const filteredProducts = products.filter((product) => {
+    const searchLower = search.toLowerCase();
+
+    return (
+      product.description?.toLowerCase().includes(searchLower) ||
+      product.code?.toLowerCase().includes(searchLower) ||
+      product.heading?.description?.toLowerCase().includes(searchLower) || // si tenés relación con heading
+      product.subheading?.description?.toLowerCase().includes(searchLower)
+    );
+  });
+
   return (
     <>
       <Navbar />
       <Title>Nuestros productos</Title>
+      {/* 🔹 Input de búsqueda */}
+      <div className="flex justify-center mb-6">
+        <input
+          type="text"
+          placeholder="Buscar por descripción, código o rubro..."
+          value={search}
+          onChange={(e) => setSearch(e.target.value)}
+          className="w-3/4 sm:w-1/2 input-light"
+        />
+      </div>
+      {/* 🔹 Grid de productos */}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 p-6">
-        {products.map((product) => (
-          <ProductCard key={product._id} product={product} />
-        ))}
+        {filteredProducts.length > 0 ? (
+          filteredProducts.map((product) => (
+            <ProductCard key={product._id} product={product} />
+          ))
+        ) : (
+          <p className="col-span-full text-center text-(--color-gray)">
+            No se encontraron productos
+          </p>
+        )}
       </div>
       <Footer />
     </>

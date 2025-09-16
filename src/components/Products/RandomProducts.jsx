@@ -32,7 +32,7 @@ export default function RandomProducts() {
     <div className="flex flex-col items-center m-10">
       <span className="text-5xl font-bold pb-10 text-(--color-secondary)">Tal vez te interese</span>
       {/* <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 p-6"> */}
-      <div className="flex flex-row gap-10">
+      <div className="flex flex-row gap-10 justify-between">
         {products
           .sort(() => Math.random() - 0.5) // Mezcla el array aleatoriamente
           .slice(0, 3) // Toma los primeros 3 elementos

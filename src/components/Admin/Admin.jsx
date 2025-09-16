@@ -9,12 +9,15 @@ const Admin = () => {
       <Navbar />
       <main className="flex-1 p-6 m-auto">
         <span className="text-2xl font-bold">Menú de Administrador</span>
-        <div className="flex flex-row gap-5">
-          <Link to="/admin/new-item" className="btn-secondary">
+        <div className="flex flex-col gap-5">
+          <Link to="/Admin/Item" className="btn-secondary">
             <span>ABM de Artículos</span>
           </Link>
-          <Link to="/admin/import-items" className="btn-secondary">
+          <Link to="/Admin/Import-Items" className="btn-secondary">
             <span>Importar artículos</span>
+          </Link>
+          <Link to="/Admin/Heading" className="btn-secondary">
+            <span>ABM de Rubros</span>
           </Link>
         </div>
       </main>

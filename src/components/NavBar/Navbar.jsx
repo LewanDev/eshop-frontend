@@ -26,7 +26,7 @@ const Navbar = () => {
         </Link>
 
         <Link to="/">
-          <span className="text-lighter text-center font-bold m-0 text-2xl">
+          <span className="text-lighter text-center font-bold m-0 text-3xl">
             e-Shop Deluxe
           </span>
         </Link>

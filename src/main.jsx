@@ -13,8 +13,9 @@ import Contact from "./components/Contact/Contact.jsx";
 import About from "./components/About/About.jsx";
 import Products from "./components/Products/Products.jsx";
 import Admin from "./components/Admin/Admin.jsx";
-import NewItem from "./components/Admin/new-item/NewItem.jsx";
+import NewItem from "./components/Admin/Item/NewItem.jsx";
 import ImportItems from "./components/Admin/Import-Items/ImportItems.jsx";
+import NewHeading from "./components/Admin/Heading/NewHeading.jsx";
 
 const router = createBrowserRouter([
   {
@@ -54,12 +55,16 @@ const router = createBrowserRouter([
     element: <Admin />
   },
   {
-    path: "/admin/new-item",
+    path: "/admin/Item",
     element: <NewItem />
   },
   {
     path: "/admin/import-items",
     element: <ImportItems />
+  },
+  {
+    path: "/admin/Heading",
+    element: <NewHeading />
   },
 ]);
 

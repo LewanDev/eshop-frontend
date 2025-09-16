@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import Navbar from "../../NavBar/Navbar";
 import Footer from "../../Footer/Footer";
 import formatPrice from "../../../utils/formatPrice";
+import BackButton from "../../Misc/BackButton";
 
 const API_URL =
   import.meta.env.VITE_API_URL || "http://localhost:3000/api/auth";
@@ -189,6 +190,7 @@ const NewItem = () => {
       <Navbar />
       <main className="flex-1 p-6 bg-(--color-lighter)">
         <div className="flex justify-between items-center mb-4">
+          <BackButton />
           <h2 className="text-2xl font-bold mx-5">Gestión de artículos</h2>
           <button
             onClick={() => {
@@ -206,7 +208,7 @@ const NewItem = () => {
             }}
             className="btn-green"
           >
-            Agregar Item
+            Agregar
           </button>
         </div>
 
@@ -222,7 +224,7 @@ const NewItem = () => {
         {/* Listado de items */}
         <table className="w-full bg-(--color-lightest) shadow rounded">
           <thead>
-            <tr className="bg-(--color-gray) text-(--color-lighter)">
+            <tr className="bg-(--color-gray) text-(--color-lighter) text-lg">
               <th className="p-2">Código</th>
               <th className="p-2">Nombre</th>
               <th className="p-2">Precio</th>
@@ -233,7 +235,7 @@ const NewItem = () => {
           <tbody>
             {filteredItems?.length > 0 ? (
               filteredItems.map((item) => (
-                <tr key={item.code} className="border-t text-center">
+                <tr key={item.code} className="border-t text-center text-lg">
                   <td className="p-2 font-bold">{item.code}</td>
                   <td className="p-2">{item.name}</td>
                   <td className="p-2">{formatPrice(item.price1)}</td>
@@ -241,7 +243,7 @@ const NewItem = () => {
                   <td className="p-2 flex gap-2 justify-center">
                     <button
                       onClick={() => handleEdit(item)}
-                      className="btn-yellow-icon"
+                      className="btn-blue-icon"
                     >
                       <svg
                         width="32px"

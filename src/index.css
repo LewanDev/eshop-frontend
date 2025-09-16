@@ -55,6 +55,8 @@ body {
   --color-red-dark: #9e0a0a;
   --color-yellow: #c4b10e;
   --color-yellow-dark: #887b0a;
+  --color-blue: #224fa3;
+  --color-blue-dark: #103272;
 
   --color-darkest: #111;
   --color-darker: #222;
@@ -104,11 +106,11 @@ body {
   --font-ptserif: "PT Serif", serif;
 }
 .btn-primary-sm {
-  @apply bg-(--color-primary) text-(--color-lightest) py-2 text-base font-bold border-0 rounded-xl cursor-pointer transition-all duration-500 hover:bg-(--color-primary-dark);
+  @apply bg-(--color-primary) text-(--color-lightest) py-2 text-base text-center font-bold border-0 rounded-xl cursor-pointer transition-all duration-500 hover:bg-(--color-primary-dark);
 }
 
 .btn-secondary {
-  @apply bg-(--color-secondary) text-(--color-lightest) py-3.5 px-5 text-base font-bold border-0 rounded-xl cursor-pointer transition-all duration-500 hover:bg-(--color-secondary-dark);
+  @apply bg-(--color-secondary) text-(--color-lightest) py-3.5 px-5 text-center text-base font-bold border-0 rounded-xl cursor-pointer transition-all duration-500 hover:bg-(--color-secondary-dark);
 }
 
 .btn-secondary-2 {
@@ -120,24 +122,29 @@ body {
 }
 
 .btn-green {
-  @apply bg-(--color-green-dark) text-(--color-lightest) py-3.5 px-5 text-base font-bold border-0 rounded-xl cursor-pointer transition-all duration-500 hover:bg-(--color-green-darker);
+  @apply bg-(--color-green-dark) text-(--color-lightest) text-center py-3.5 px-5 text-base font-bold border-0 rounded-xl cursor-pointer transition-all duration-500 hover:bg-(--color-green-darker);
 }
 
 .btn-red {
-  @apply bg-(--color-red-dark) text-(--color-lightest) py-3.5 px-5 text-base font-bold border-0 rounded-xl cursor-pointer transition-all duration-500 hover:bg-(--color-red-darker);
+  @apply bg-(--color-red-dark) text-(--color-lightest) text-center py-3.5 px-5 text-base font-bold border-0 rounded-xl cursor-pointer transition-all duration-500 hover:bg-(--color-red-darker);
 }
 
 .btn-red-icon {
-  @apply bg-(--color-red-dark) p-2 border-0 rounded-2xl cursor-pointer transition-all duration-500 hover:bg-(--color-red-darker);
+  @apply bg-(--color-red-dark) p-2 border-0 rounded-2xl text-center cursor-pointer transition-all duration-500 hover:bg-(--color-red-darker);
 }
 
 .btn-yellow {
-  @apply bg-(--color-yellow) text-(--color-lightest) py-3.5 px-5 text-base font-bold border-0 rounded-xl cursor-pointer transition-all duration-500 hover:bg-(--color-yellow-dark);
+  @apply bg-(--color-yellow) text-(--color-lightest) text-center py-3.5 px-5 text-base font-bold border-0 rounded-xl cursor-pointer transition-all duration-500 hover:bg-(--color-yellow-dark);
 }
 .btn-yellow-icon {
-  @apply bg-(--color-yellow) px-2 border-0 rounded-2xl cursor-pointer transition-all duration-500 hover:bg-(--color-yellow-dark);
+  @apply bg-(--color-yellow) px-2 border-0 rounded-2xl text-center cursor-pointer transition-all duration-500 hover:bg-(--color-yellow-dark);
 }
-
+.btn-blue {
+  @apply bg-(--color-blue) text-(--color-lightest) text-center py-3.5 px-5 text-base font-bold border-0 rounded-xl cursor-pointer transition-all duration-500 hover:bg-(--color-blue-dark);
+}
+.btn-blue-icon {
+  @apply bg-(--color-blue) px-2 border-0 rounded-2xl text-center cursor-pointer transition-all duration-500 hover:bg-(--color-blue-dark);
+}
 .input-light {
   @apply text-base p-3 inline-block border-2 border-solid border-(--color-light) rounded-xl box-border text-start bg-(--color-lightest);
 }
