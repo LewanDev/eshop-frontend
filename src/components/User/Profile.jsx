@@ -123,7 +123,7 @@ const Profile = () => {
   return (
     <div className="flex flex-col min-h-screen ">
       <Navbar />
-      <div className="flex-1 w-xl py-4 px-10 rounded-xl text-start bg-(--color-lighter) flex flex-col mx-auto gap-5">
+      <div className="flex-1 w-xl py-4 px-10 my-5 rounded-xl text-start bg-(--color-lighter) flex flex-col mx-auto gap-5">
         <h2 className="text-2xl font-bold">Mis datos</h2>
         <div className="flex-1 flex flex-col h-full justify-between">
           {!editMode ? (

@@ -17,7 +17,9 @@ const NewItem = () => {
     currency: "ARS",
     measure: "",
     colorVariants: [],
+    images: [],
   });
+
   const [editingCode, setEditingCode] = useState(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [search, setSearch] = useState("");
@@ -88,20 +90,34 @@ const NewItem = () => {
     });
   };
 
+  const handleImagesChange = (e) => {
+    const files = Array.from(e.target.files);
+    setForm((prev) => ({
+      ...prev,
+      images: [...(prev.images || []), ...files],
+    }));
+  };
+
+  const removeImage = (idx) => {
+    setForm((prev) => ({
+      ...prev,
+      images: prev.images.filter((_, i) => i !== idx),
+    }));
+  };
+
   // 🔹 Crear o editar item
   const handleSubmit = async (e) => {
     e.preventDefault();
 
     try {
       if (editingCode) {
-        // ✅ PUT actualizar (sin colores)
+        // ✅ PUT actualizar
         await fetch(`${API_URL}/item/${editingCode}`, {
           method: "PUT",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify(form),
         });
       } else {
-        // ✅ POST nuevo item (con colores e imágenes)
         const data = new FormData();
         data.append("code", form.code);
         data.append("name", form.name);
@@ -110,28 +126,32 @@ const NewItem = () => {
         data.append("currency", form.currency);
         data.append("measure", form.measure);
 
-        // solo en creación: enviamos variantes de color
+        // variantes de color
         if (form.colorVariants?.length > 0) {
-          // Guardamos JSON con los colores (sin imágenes)
           const variantsJson = form.colorVariants.map((v) => ({
             color: v.color,
             imageUrl: v.imageUrl || "",
           }));
           data.append("colorVariants", JSON.stringify(variantsJson));
-
-          // Agregamos las imágenes como archivos
           form.colorVariants.forEach((v) => {
             if (v.image) data.append("images", v.image);
           });
         }
 
+        // imágenes generales
+        if (form.images?.length > 0) {
+          form.images.forEach((img) => {
+            data.append("images", img); // 👈 mismas "images" que recibe multer
+          });
+        }
+
         await fetch(`${API_URL}/newItem`, {
           method: "POST",
-          body: data, // 👈 no headers porque es multipart/form-data
+          body: data,
         });
       }
 
-      // Reset form
+      // reset
       setForm({
         code: "",
         name: "",
@@ -139,7 +159,8 @@ const NewItem = () => {
         price1: "",
         currency: "ARS",
         measure: "",
-        colorVariants: [], 
+        colorVariants: [],
+        images: [], // reset imágenes
       });
       setEditingCode(null);
       setIsModalOpen(false);
@@ -148,6 +169,7 @@ const NewItem = () => {
       console.error("❌ Error al guardar item:", err);
     }
   };
+  
 
   // 🔹 Cargar datos de item en formulario para editar
   const handleEdit = (item) => {
@@ -240,6 +262,7 @@ const NewItem = () => {
                   <td className="p-2">{item.name}</td>
                   <td className="p-2">{formatPrice(item.price1)}</td>
                   <td className="p-2">{item.currency}</td>
+
                   <td className="p-2 flex gap-2 justify-center">
                     <button
                       onClick={() => handleEdit(item)}
@@ -453,6 +476,39 @@ const NewItem = () => {
                   </button>
                 </div>
               )}
+              <div className="flex flex-col gap-2">
+                <label className="font-bold">Imágenes del artículo</label>
+                <input
+                  type="file"
+                  accept="image/*"
+                  multiple
+                  onChange={handleImagesChange}
+                  className="border p-2 rounded"
+                />
+
+                {/* Previsualización */}
+                {form.images?.length > 0 && (
+                  <div className="grid grid-cols-3 gap-2 mt-2">
+                    {form.images.map((img, idx) => (
+                      <div key={idx} className="relative group">
+                        <img
+                          src={URL.createObjectURL(img)}
+                          alt={`preview-${idx}`}
+                          className="w-full h-32 object-cover rounded shadow"
+                        />
+                        <button
+                          type="button"
+                          onClick={() => removeImage(idx)}
+                          className="absolute top-1 right-1 bg-red-600 text-white rounded-full w-6 h-6 flex items-center justify-center opacity-80 hover:opacity-100"
+                        >
+                          ✕
+                        </button>
+                      </div>
+                    ))}
+                  </div>
+                )}
+              </div>
+
               <div className="flex flex-row gap-5 ">
                 <button
                   type="button"

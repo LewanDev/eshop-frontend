@@ -43,7 +43,13 @@ const Navbar = () => {
                     className="border-2 border-solid border-transparent outline-0 text-white bg-transparent font-bold cursor-pointer text-lg w-10 transition-all duration-500"
                   />
                   <div className="dropdown-content">
-                    {user.isAdmin ? (<><Link to="/admin">🔧 Aministrador</Link></>) : (<></>)}
+                    {user.isAdmin ? (
+                      <>
+                        <Link to="/admin">🔧 Aministrador</Link>
+                      </>
+                    ) : (
+                      <></>
+                    )}
                     <Link to="/profile">👤 Mi perfil </Link>
                     <Link to="/cart">
                       🛒 Mi carrito
