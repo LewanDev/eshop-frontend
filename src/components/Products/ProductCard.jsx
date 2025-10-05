@@ -38,7 +38,7 @@ export default function ProductCard({ product }) {
   return (
     <>
       {/* Card */}
-      <div className="bg-(--color-lighter) rounded-xl shadow-md overflow-hidden flex flex-col pt-5 w-80">
+      <div className="rounded-xl shadow-md overflow-hidden flex flex-col pt-5 w-80 cursor-pointer" onClick={() => openModal(product)}>
         {/* Imagen con carrusel */}
         <div className="relative">
           {allImages.length > 0 ? (

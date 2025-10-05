@@ -7,3 +7,30 @@
     width: 100%;
   }
 }
+
+/* Bloquea el scroll del body cuando el modal está abierto */
+body.modal-open {
+  overflow: hidden;
+}
+
+/* Transiciones y ajustes visuales */
+.modal-overlay {
+  animation: fadeIn 0.2s ease-in;
+}
+
+.modal-image {
+  transform-origin: center;
+  object-fit: contain;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+.modal-open {
+  overflow: hidden;
+}

@@ -152,10 +152,16 @@ body {
 .select-light {
   @apply border border-(--color-gray-light) rounded-lg text-center w-40
 }
-
+.select-light-sm {
+  @apply border border-(--color-gray-light) rounded-lg text-center w-30
+}
 .image-sm {
   @apply h-60 object-contain border-1 border-(--color-lighter) rounded-2xl
 }
 .image-sm-1 {
   @apply h-60 object-contain border-1 border-(--color-gray-lightest) rounded-2xl
+}
+
+.image-md-1 {
+  @apply h-80 object-contain border-1 border-(--color-gray-lightest) rounded-2xl
 }
