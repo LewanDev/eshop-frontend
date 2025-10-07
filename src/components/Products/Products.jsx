@@ -45,7 +45,8 @@ const Products = () => {
   return (
     <>
       <Navbar />
-      <Title>Nuestros productos</Title>
+      {/* <Title>Nuestros productos</Title> */}
+      <h1 className="txt-dark-lg">Nuestros productos</h1>
       {/* 🔹 Input de búsqueda */}
       <div className="flex justify-center mb-6">
         <input

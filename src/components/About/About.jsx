@@ -6,7 +6,7 @@ const About = () => {
     <>
       <Navbar />
       <div className="max-w-4xl my-5 mx-auto leading-10">
-        <h1 className="text-center text-4xl font-black my-12 text-(--color-dark)">Sobre Nosotros</h1>
+        <h1 className="txt-dark-lg">Sobre Nosotros</h1>
 
         <section className="mb-8">
           <h2 className="text-2xl mb-2.5 font-bold text-(--color-secondary)">Nuestra Historia</h2>

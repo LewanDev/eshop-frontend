@@ -19,6 +19,7 @@ import NotAuthorized from "./components/NotAuthorized.jsx";
 import NewItem from "./components/Admin/Item/NewItem.jsx";
 import ImportItems from "./components/Admin/Import-Items/ImportItems.jsx";
 import NewHeading from "./components/Admin/Heading/NewHeading.jsx";
+import { Config } from "./components/Admin/Config/Config.jsx";
 
 function AppRouter() {
   const { user } = useContext(Context);
@@ -70,6 +71,10 @@ function AppRouter() {
     {
       path: "/admin/Heading",
       element: <NewHeading />,
+    },
+    {
+      path: "/admin/Config",
+      element: <Config />,
     },
 
     // 🔒 Rutas admin protegidas

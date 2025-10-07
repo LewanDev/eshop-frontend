@@ -19,6 +19,9 @@ const Admin = () => {
           <Link to="/Admin/Heading" className="btn-secondary">
             <span>ABM de Rubros</span>
           </Link>
+          <Link to="/Admin/Config" className="btn-green">
+            <span>Configuración</span>
+          </Link>
         </div>
       </main>
       <Footer />

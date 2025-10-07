@@ -23,8 +23,8 @@ const Contact = () => {
   return (
     <>
       <Navbar />
-      <div className="max-w-[1000px] my-5 mx-auto p-5">
-        <h1 className="text-center mb-7 font-bold text-4xl text-(--color-dark)">
+      <div className="max-w-[1000px] mx-auto p-5">
+        <h1 className="txt-dark-lg">
           Contactanos
         </h1>
         <p className="text-center text-xl mb-6">

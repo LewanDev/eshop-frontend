@@ -26,7 +26,7 @@ export default function RandomProducts() {
 
   return (
     <div className="flex flex-col items-center m-10">
-      <span className="text-5xl font-bold pb-10 text-(--color-secondary)">
+      <span className="txt-primary-xl">
         Tal vez te interese
       </span>
       <div className="flex flex-row gap-10 justify-between">
