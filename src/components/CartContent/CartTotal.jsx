@@ -2,7 +2,7 @@ import { useContext } from "react";
 import { Context } from "../../context/Context";
 
 const CartTotal = () => {
-  const { cart, clearCart, confirmCart } = useContext(Context);
+  const { cart} = useContext(Context);
 
   const total = cart.reduce(
     (acc, element) => acc + element.price1 * element.quanty,
@@ -18,20 +18,7 @@ const CartTotal = () => {
   return (
     <div className="flex flex-col items-center gap-5">
       <span className="text-2xl font-bold">Total a pagar: {formatPrice(total)}</span>
-      <div className="flex flex-row gap-2.5">
-        <button
-          onClick={confirmCart}
-          className="btn-green"
-        >
-          Confirmar pedido
-        </button>
-        <button
-          onClick={clearCart}
-          className="btn-red"
-        >
-          Vaciar carrito
-        </button>
-      </div>
+      
     </div>
   );
 };

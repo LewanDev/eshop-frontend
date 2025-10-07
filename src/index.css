@@ -126,15 +126,18 @@ body {
 .btn-green {
   @apply bg-(--color-green-dark) text-(--color-lightest) text-center py-3.5 px-5 text-base font-bold border-0 rounded-xl cursor-pointer transition-all duration-500 hover:bg-(--color-green-darker);
 }
-
+.btn-green-xl {
+  @apply bg-(--color-green-dark) text-(--color-lightest) w-full max-w-xs text-center py-3.5 px-5 text-base font-bold border-0 rounded-xl cursor-pointer transition-all duration-300 hover:bg-(--color-green-darker);
+}
 .btn-red {
   @apply bg-(--color-red-dark) text-(--color-lightest) text-center py-3.5 px-5 text-base font-bold border-0 rounded-xl cursor-pointer transition-all duration-500 hover:bg-(--color-red-darker);
 }
-
 .btn-red-icon {
   @apply bg-(--color-red-dark) p-2 border-0 rounded-2xl text-center cursor-pointer transition-all duration-500 hover:bg-(--color-red-darker);
 }
-
+.btn-red-xl {
+  @apply bg-(--color-red-dark) text-(--color-lightest) w-full max-w-xs text-center py-3.5 px-5 text-base font-bold border-0 rounded-xl cursor-pointer transition-all duration-300 hover:bg-(--color-red-darker);
+}
 .btn-yellow {
   @apply bg-(--color-yellow) text-(--color-lightest) text-center py-3.5 px-5 text-base font-bold border-0 rounded-xl cursor-pointer transition-all duration-500 hover:bg-(--color-yellow-dark);
 }
@@ -146,6 +149,9 @@ body {
 }
 .btn-blue-icon {
   @apply bg-(--color-blue) px-2 border-0 rounded-2xl text-center cursor-pointer transition-all duration-500 hover:bg-(--color-blue-dark);
+}
+.btn-disabled-xl {
+  @apply bg-(--color-gray) text-(--color-lightest) w-full max-w-xs text-center py-3.5 px-5 text-base font-bold border-0 rounded-xl cursor-pointer transition-all duration-100;
 }
 /** ********* **/
 

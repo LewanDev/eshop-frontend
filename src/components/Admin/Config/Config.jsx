@@ -11,6 +11,8 @@ export const Config = () => {
   const [error, setError] = useState("");
   const [message, setMessage] = useState("");
   const [loading, setLoading] = useState(false);
+  const [showToast, setShowToast] = useState(false);
+  const [disableBtn, setDisableBtn] = useState(false);
 
   // 🧠 Validador simple
   const isValidEmail = (email) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
@@ -62,7 +64,11 @@ export const Config = () => {
       setError("Hay correos inválidos. Corrígelos antes de guardar.");
       return;
     }
+    setShowToast(true);
+    setTimeout(() => setShowToast(false), 1500);
 
+    setDisableBtn(true);
+    setTimeout(() => setDisableBtn(false), 1500);
     setError("");
     setLoading(true);
     setMessage("");
@@ -88,6 +94,12 @@ export const Config = () => {
 
   return (
     <div className="flex flex-col min-h-screen">
+      {/* Notificación tipo toast */}
+      {showToast && (
+        <div className="fixed top-5 right-5 bg-(--color-green-dark) text-white px-5 py-3 rounded-lg shadow-lg transition-all duration-300 z-50">
+          Emails guardados correctamente ✔
+        </div>
+      )}
       <Navbar />
       <main className="flex flex-col m-8 mx-auto px-8 pb-8 gap-4 w-full max-w-5xl bg-(--color-lighter) rounded-lg shadow-md">
         <span className="txt-dark-lg">Configuración de Emails</span>
@@ -121,8 +133,8 @@ export const Config = () => {
         </button>
         <div className="flex flex-row justify-between gap-10">
           <BackButton />
-          <button className="btn-secondary" onClick={handleSave}>
-            💾 Guardar
+          <button className={disableBtn ? "btn-disabled-xl" : "btn-green-xl"} onClick={handleSave} disabled={disableBtn}>
+            {disableBtn ? "Guardado" : "Guardar"}
           </button>
         </div>
       </main>

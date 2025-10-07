@@ -1,14 +1,15 @@
 import { useContext } from "react";
 import { Context } from "../../context/Context";
+import { useNavigate, Link } from "react-router-dom";
 
 import Navbar from "../NavBar/Navbar";
 import CartElements from "./CartElements";
 import CartTotal from "./CartTotal";
 import Footer from "../Footer/Footer";
-import { Link } from "react-router-dom";
 
 const CartContent = () => {
-  const { cart } = useContext(Context);
+  const { cart, clearCart, confirmCart } = useContext(Context);
+  const navigate = useNavigate();
 
   // Total de unidades en el carrito
   const totalItems = cart.reduce((acc, item) => acc + item.quanty, 0);
@@ -27,10 +28,20 @@ const CartContent = () => {
             </div>
             <CartElements />
             <CartTotal />
+            <div className="flex flex-row justify-center gap-2.5 mt-10">
+              <button onClick={() => confirmCart(navigate)} className="btn-green">
+                Confirmar pedido
+              </button>
+              <button onClick={clearCart} className="btn-red">
+                Vaciar carrito
+              </button>
+            </div>
           </div>
         ) : (
           <div className="text-center">
-            <h2 className="text-2xl text-(--color-gray)">Tu carrito está vacío.</h2>
+            <h2 className="text-2xl text-(--color-gray)">
+              Tu carrito está vacío.
+            </h2>
             <Link to="/products">
               <span className="text-2xl text-[var(--color-primary)] no-underline hover:text-[var(--color-secondary)] transition-all duration-500">
                 ¡Descubre nuestros productos!

@@ -39,11 +39,9 @@ const ProductDetail = ({ product, onClose }) => {
 
     addProduct(selectedVariantProduct);
 
-    // 🔹 Mostrar toast
     setShowToast(true);
     setTimeout(() => setShowToast(false), 1500);
 
-    // 🔹 Deshabilitar botón 1 segundo
     setDisableBtn(true);
     setTimeout(() => setDisableBtn(false), 1000);
   };
