@@ -47,7 +47,16 @@ const Profile = () => {
         phone: data.user.client?.phone || "",
       });
 
-      localStorage.setItem("user", JSON.stringify(data.user));
+      localStorage.setItem(
+        "user",
+        JSON.stringify({
+          email: data.user.email,
+          name: data.user.client?.name,
+          phone: data.user.client?.phone,
+          address: data.user.client?.address,
+          dni: data.user.client?.dni,
+        })
+      );
     } catch (err) {
       console.error("Error cargando perfil:", err);
       handleLogout();
@@ -157,10 +166,7 @@ const Profile = () => {
                 >
                   Editar
                 </button>
-                <button
-                  onClick={handleLogout}
-                  className="w-full btn-red"
-                >
+                <button onClick={handleLogout} className="w-full btn-red">
                   Cerrar sesión
                 </button>
               </div>
@@ -220,10 +226,7 @@ const Profile = () => {
               </div>
 
               <div className="flex flex-row gap-2.5 h-12">
-                <button
-                  className="w-full btn-green"
-                  onClick={handleSave}
-                >
+                <button className="w-full btn-green" onClick={handleSave}>
                   Guardar
                 </button>
                 <button
