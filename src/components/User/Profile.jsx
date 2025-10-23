@@ -55,6 +55,7 @@ const Profile = () => {
           phone: data.user.client?.phone,
           address: data.user.client?.address,
           dni: data.user.client?.dni,
+          isAdmin: data.user.isAdmin,
         })
       );
     } catch (err) {

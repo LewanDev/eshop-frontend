@@ -68,6 +68,10 @@ const Navbar = () => {
                 <div className="dropdown-content">
                   <Link to="/login">Iniciar sesión</Link>
                   <Link to="/register">Crear una cuenta</Link>
+                  <Link to="/cart">
+                    🛒 Mi carrito
+                    <TotalItems />
+                  </Link>
                 </div>
               </div>
             )}
