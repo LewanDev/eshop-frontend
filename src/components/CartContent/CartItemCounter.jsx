@@ -5,12 +5,20 @@ const CartItemCounter = ({ product }) => {
   const { cart, setCart, addProduct } = useContext(Context);
 
   const decrease = () => {
-    const productExists = cart.find((item) => item._id === product._id);
+    //const productExists = cart.find((item) => item._id === product._id);
+    const productExists = cart.find((item) => item.cartId === product.cartId);
 
     if (productExists && (productExists.quanty || 1) > 1) {
+      // setCart(
+      //   cart.map((item) =>
+      //     item._id === product._id
+      //       ? { ...item, quanty: productExists.quanty - 1 }
+      //       : item
+      //   )
+      // );
       setCart(
         cart.map((item) =>
-          item._id === product._id
+          item.cartId === product.cartId
             ? { ...item, quanty: productExists.quanty - 1 }
             : item
         )
