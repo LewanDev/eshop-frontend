@@ -4,7 +4,7 @@ import Navbar from "../NavBar/Navbar";
 import Footer from "../Footer/Footer";
 
 const API_BASE =
-  import.meta.env.VITE_API_URL || "http://localhost:3000/api/auth";
+  import.meta.env.VITE_API_URL || "http://localhost:3000/api";
 
 const Profile = () => {
   const [user, setUser] = useState(null);
@@ -79,7 +79,7 @@ const Profile = () => {
   const handleSave = async () => {
     try {
       const token = localStorage.getItem("token");
-      const res = await fetch(`${API_BASE}/profile`, {
+      const res = await fetch(`${API_BASE}/auth/profile`, {
         method: "PUT",
         headers: {
           "Content-Type": "application/json",
