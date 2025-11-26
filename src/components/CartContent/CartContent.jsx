@@ -23,7 +23,7 @@ const CartContent = () => {
             <div className="flex flex-row justify-between items-center mb-6">
               <span className="text-3xl font-bold">Carrito de compras</span>
               <span className="text-xl italic">
-                {totalItems} Artículo{totalItems !== 1 ? "s" : ""}
+                {totalItems} Unidad{totalItems !== 1 ? "es" : ""}
               </span>
             </div>
             <CartElements />

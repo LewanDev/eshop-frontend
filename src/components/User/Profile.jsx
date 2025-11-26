@@ -27,7 +27,7 @@ const Profile = () => {
       const token = localStorage.getItem("token");
       if (!token) return handleLogout();
 
-      const res = await fetch(`${API_BASE}/profile`, {
+      const res = await fetch(`${API_BASE}/auth/profile`, {
         headers: { Authorization: `Bearer ${token}` },
       });
 
