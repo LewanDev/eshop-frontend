@@ -112,7 +112,7 @@ const NewItem = () => {
     try {
       if (editingCode) {
         // ✅ PUT actualizar
-        await fetch(`${API_URL}/item/${editingCode}`, {
+        await fetch(`${API_URL}/items/${editingCode}`, {
           method: "PUT",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify(form),
@@ -141,11 +141,12 @@ const NewItem = () => {
         // imágenes generales
         if (form.images?.length > 0) {
           form.images.forEach((img) => {
-            data.append("images", img); // 👈 mismas "images" que recibe multer
+            data.append("images", img); 
           });
         }
 
-        await fetch(`${API_URL}/newItem`, {
+        //await fetch(`${API_URL}/newItem`, {
+        await fetch(`${API_URL}/items`, {
           method: "POST",
           body: data,
         });
@@ -186,6 +187,7 @@ const NewItem = () => {
     });
     setEditingCode(item.code);
     setIsModalOpen(true);
+    console.log("Item edited.")
   };
 
   // 🔹 Eliminar item
@@ -193,8 +195,10 @@ const NewItem = () => {
     if (!window.confirm("¿Seguro que deseas eliminar este item?")) return;
 
     try {
-      await fetch(`${API_URL}/item/${code}`, { method: "DELETE" });
+      await fetch(`${API_URL}/items/${code}`, { method: "DELETE" });
       fetchItems();
+      console.log("Item deleted.")
+
     } catch (err) {
       console.error("❌ Error al eliminar item:", err);
     }

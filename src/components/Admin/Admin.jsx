@@ -25,9 +25,11 @@ const Admin = () => {
           <Link to="/admin/Orders" className="btn-secondary">
             <span>Listado de pedidos</span>
           </Link>
+          {/* 
           <Link to="/admin/Config" className="btn-green">
             <span>Configuración</span>
-          </Link>
+          </Link> 
+          */}
         </div>
       </main>
       <Footer />
