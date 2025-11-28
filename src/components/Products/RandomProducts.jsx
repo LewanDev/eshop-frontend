@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import ProductCard from "./ProductCard";
 
-const API_URL = import.meta.env.VITE_API_URL || "http://localhost:3000/api/auth";
+const API_URL = import.meta.env.VITE_API_URL || "http://localhost:5000/api";
 
 export default function RandomProducts() {
   const [products, setProducts] = useState([]);

@@ -10,16 +10,22 @@ const Admin = () => {
       <main className="flex flex-col gap-5 p-6 m-auto">
         <span className="text-3xl font-bold">Menú de Administrador</span>
         <div className="flex flex-col gap-5">
-          <Link to="/Admin/Item" className="btn-secondary">
+          <Link to="/admin/Item" className="btn-secondary">
             <span>ABM de Artículos</span>
           </Link>
-          <Link to="/Admin/Import-Items" className="btn-secondary">
+          {/* 
+          <Link to="/admin/Import-Items" className="btn-secondary">
             <span>Importar artículos</span>
           </Link>
-          <Link to="/Admin/Heading" className="btn-secondary">
+          
+          <Link to="/admin/Heading" className="btn-secondary">
             <span>ABM de Rubros</span>
+          </Link> 
+          */}
+          <Link to="/admin/Orders" className="btn-secondary">
+            <span>Listado de pedidos</span>
           </Link>
-          <Link to="/Admin/Config" className="btn-green">
+          <Link to="/admin/Config" className="btn-green">
             <span>Configuración</span>
           </Link>
         </div>

@@ -3,7 +3,7 @@ import Navbar from "../../NavBar/Navbar";
 import Footer from "../../Footer/Footer";
 import BackButton from "../../Misc/BackButton";
 
-const API_URL = import.meta.env.VITE_API_URL || "http://localhost:3000/api";
+const API_URL = import.meta.env.VITE_API_URL || "http://localhost:5000/api";
 
 const NewHeading = () => {
   const [headings, setHeadings] = useState([]);

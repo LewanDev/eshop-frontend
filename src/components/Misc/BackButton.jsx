@@ -9,7 +9,7 @@ const BackButton = () => {
 
   return (
     <>
-      <button className="btn-red-xl" onClick={handleGoBack}>
+      <button className="btn-red" onClick={handleGoBack}>
         Volver
       </button>
     </>

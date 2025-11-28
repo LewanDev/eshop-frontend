@@ -126,6 +126,9 @@ body {
 .btn-green {
   @apply bg-(--color-green-dark) text-(--color-lightest) text-center py-3.5 px-5 text-base font-bold border-0 rounded-xl cursor-pointer transition-all duration-500 hover:bg-(--color-green-darker);
 }
+.btn-green-icon {
+  @apply bg-(--color-green-dark) p-2 border-0 rounded-2xl text-center cursor-pointer transition-all duration-500 hover:bg-(--color-green-darker);
+}
 .btn-green-xl {
   @apply bg-(--color-green-dark) text-(--color-lightest) w-full max-w-xs text-center py-3.5 px-5 text-base font-bold border-0 rounded-xl cursor-pointer transition-all duration-300 hover:bg-(--color-green-darker);
 }

@@ -4,7 +4,7 @@ import Navbar from "../NavBar/Navbar";
 import Footer from "../Footer/Footer";
 
 const API_BASE =
-  import.meta.env.VITE_API_URL || "http://localhost:3000/api";
+  import.meta.env.VITE_API_URL || "http://localhost:5000/api";
 
 const Profile = () => {
   const [user, setUser] = useState(null);
@@ -37,7 +37,7 @@ const Profile = () => {
 
       // Guardamos solo el usuario
       setUser(data.user);
-      console.log("✨ GET USER: " + data.user);
+      console.log("✨ GET USER: " + data.user.name);
 
       // Llenamos el formulario con los datos del client
       setForm({
