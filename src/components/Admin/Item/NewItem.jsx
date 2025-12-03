@@ -4,8 +4,7 @@ import Footer from "../../Footer/Footer";
 import formatPrice from "../../../utils/formatPrice";
 import BackButton from "../../Misc/BackButton";
 
-const API_URL =
-  import.meta.env.VITE_API_URL || "http://localhost:5000/api";
+const API_URL = import.meta.env.VITE_API_URL || "http://localhost:5000/api";
 
 const NewItem = () => {
   const [items, setItems] = useState([]);
@@ -109,17 +108,49 @@ const NewItem = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
+    const codeTrimmed = form.code.trim();
+
     try {
       if (editingCode) {
-        // ✅ PUT actualizar
+        // PUT actualizar
         await fetch(`${API_URL}/items/${editingCode}`, {
           method: "PUT",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify(form),
         });
       } else {
+        const exists = items.some(
+          (item) => item.code.trim().toLowerCase() === codeTrimmed.toLowerCase()
+        );
+
+        if (exists) {
+          alert(`El código ${codeTrimmed} ya existe. Debes usar uno distinto.`);
+          return; // ❌ cortar envío
+        }
+        // 🛑 Validación: al menos una imagen general
+        if (!form.images || form.images.length === 0) {
+          alert("Debes agregar al menos una imagen del producto.");
+          return;
+        }
+
+        // 🛑 Validación: al menos 1 color con imagen
+        if (!form.colorVariants || form.colorVariants.length === 0) {
+          alert("Debes agregar al menos un color.");
+          return;
+        }
+
+        const hasAtLeastOneColorImage = form.colorVariants.some(
+          (v) => v.color?.trim() !== "" && v.image
+        );
+
+        if (!hasAtLeastOneColorImage) {
+          alert("Debes agregar al menos un color que tenga una imagen.");
+          return;
+        }
+
+        // POST crear
         const data = new FormData();
-        data.append("code", form.code);
+        data.append("code", codeTrimmed);
         data.append("name", form.name);
         data.append("description", form.description);
         data.append("price1", form.price1);
@@ -133,6 +164,7 @@ const NewItem = () => {
             imageUrl: v.imageUrl || "",
           }));
           data.append("colorVariants", JSON.stringify(variantsJson));
+
           form.colorVariants.forEach((v) => {
             if (v.image) data.append("images", v.image);
           });
@@ -141,11 +173,10 @@ const NewItem = () => {
         // imágenes generales
         if (form.images?.length > 0) {
           form.images.forEach((img) => {
-            data.append("images", img); 
+            data.append("images", img);
           });
         }
 
-        //await fetch(`${API_URL}/newItem`, {
         await fetch(`${API_URL}/items`, {
           method: "POST",
           body: data,
@@ -161,8 +192,9 @@ const NewItem = () => {
         currency: "ARS",
         measure: "",
         colorVariants: [],
-        images: [], // reset imágenes
+        images: [],
       });
+
       setEditingCode(null);
       setIsModalOpen(false);
       fetchItems();
@@ -170,12 +202,11 @@ const NewItem = () => {
       console.error("❌ Error al guardar item:", err);
     }
   };
-  
 
   // 🔹 Cargar datos de item en formulario para editar
   const handleEdit = (item) => {
     setForm({
-      code: item.code,
+      code: item.code.trim(),
       name: item.name,
       description: item.description,
       price1: item.price1,
@@ -187,7 +218,7 @@ const NewItem = () => {
     });
     setEditingCode(item.code);
     setIsModalOpen(true);
-    console.log("Item edited.")
+    console.log("Item edited.");
   };
 
   // 🔹 Eliminar item
@@ -197,8 +228,7 @@ const NewItem = () => {
     try {
       await fetch(`${API_URL}/items/${code}`, { method: "DELETE" });
       fetchItems();
-      console.log("Item deleted.")
-
+      console.log("Item deleted.");
     } catch (err) {
       console.error("❌ Error al eliminar item:", err);
     }
@@ -268,7 +298,7 @@ const NewItem = () => {
                   <td className="p-2">{item.currency}</td>
 
                   <td className="p-2 flex gap-2 justify-center">
-                    <button
+                    {/* <button
                       onClick={() => handleEdit(item)}
                       className="btn-blue-icon"
                     >
@@ -296,7 +326,7 @@ const NewItem = () => {
                           ></path>{" "}
                         </g>
                       </svg>
-                    </button>
+                    </button> */}
                     <button
                       onClick={() => handleDelete(item.code)}
                       className="btn-red-icon"
@@ -484,6 +514,7 @@ const NewItem = () => {
                 <label className="font-bold">Imágenes del artículo</label>
                 <input
                   type="file"
+                  name="images"
                   accept="image/*"
                   multiple
                   onChange={handleImagesChange}
